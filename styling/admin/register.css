@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Jost', sans-serif;
+    background:  linear-gradient(rgb(248, 153, 153), rgba(250, 218, 218, 0.5)), url(../img/register-bg.jpg) center/cover no-repeat fixed;
+}
+
+#chk {
+    display: none;
+}
