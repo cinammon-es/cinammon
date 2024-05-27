@@ -1,5 +1,7 @@
+/* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +13,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* Root Variables */
 :root {
     --bg-color: #1f242d;
     --second-bg-color: #323946;
@@ -41,6 +44,7 @@ section {
     padding: 10rem 9% 2rem;
 }
 
+/* Header */
 .header {
     position: fixed;
     top: 0;
@@ -83,6 +87,7 @@ section {
     display: none;
 }
 
+/* Home Section */
 .home {
     display: flex;
     justify-content: center;
@@ -116,6 +121,7 @@ span {
     font-size: 1.6rem;
 }
 
+/* Social Media */
 .social-media a {
     display: inline-flex;
     justify-content: center;
@@ -137,6 +143,7 @@ span {
     box-shadow: 0 0 1rem var(--main-color);
 }
 
+/* Buttons */
 .btn {
     display: inline-block;
     padding: 1rem 2.8rem;
@@ -154,6 +161,7 @@ span {
     box-shadow: none;
 }
 
+/* About Section */
 .about {
     display: flex;
     justify-content: center;
@@ -185,6 +193,65 @@ span {
     margin: 1rem 0 3rem;
 }
 
+/* Account Section */
+.account {
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+
+.account h2 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.account-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem; 
+}
+
+.account-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--second-bg-color); 
+}
+
+.account-box:hover {
+    border: .2rem solid var(--main-color); 
+    transform: scale(1.03);
+    transform: ease-in-out;
+}
+
+.account-container .account-box:hover {
+    border-color: var(--main-color);
+    transform: scale(1.03);
+}
+
+.account-box i {
+    font-size: 7rem;
+    color: var(--main-color);
+}
+
+.account-box h3 {
+    font-size: 2.6rem;
+}
+
+.account-box p {
+    font-size: 1.6rem;
+    margin: 1rem 0 3rem;
+}
+
+/* Billing Section */
 .billing {
     display: flex;
     justify-content: center;
@@ -204,10 +271,6 @@ span {
     margin-bottom: 2rem;
 }
 
-span {
-    color: var(--main-color);
-}
-
 .billing-content h1 {
     font-size: 5.6rem;
     font-weight: 700;
@@ -218,6 +281,7 @@ span {
     font-size: 1.6rem;
 }
 
+/* Services Section */
 .services h2 {
     margin-bottom: 5rem;
 }
@@ -259,139 +323,145 @@ span {
     margin: 1rem 0 3rem;
 }
 
-.portafolio {
+/* Review Section */
+.review {
     background: var(--second-bg-color);
 }
 
+.review-container {
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Navigation */
 nav ul li {
-  display: inline-block;
-  padding: 0 10px;
+    display: inline-block;
+    padding: 0 10px;
 }
 
 nav ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.team-developer-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
+/* Team Section */
+.team-user-info p {
+    font-size: 22px;
+    text-align: center;
 }
 
-.team-developer-info p {
-  font-size: 22px;
-  text-align: center;
+
+.users-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 2rem 3rem 2rem;
 }
 
-.developers-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  flex-direction: row !important;
-  justify-content: center;
-  align-items: center;
-  margin: 3rem 2rem 3rem 2rem;
+.user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    padding: 16px;
+    border-radius: 0.5rem;
 }
 
-.developer-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--bg-color);
-  padding: 16px;
-  border-radius: 0.5rem;
+.user-banner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    height: 120px;
+    width: 100%;
+    overflow: hidden;
 }
 
-.developer-banner {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0.5rem;
-  height: 120px;
-  width: 100%;
-  overflow: hidden;
+.user-background {
+    position: absolute;
+    inset: 0px;
+    opacity: 0.2;
 }
 
-.developer-background {
-  position: absolute;
-  inset: 0px;
-  opacity: 0.2;
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.developer-profile {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.user-name {
+    font-size: 18px;
+    font-weight: 800;
+    text-decoration: none;
+    margin-top: 1rem;
 }
 
-.developer-name {
-  font-size: 18px;
-  font-weight: 800;
-  text-decoration: none;
-  margin-top: 1rem;
+.user-name:hover {
+    color: var(--primary);
+    cursor: pointer;
 }
 
-.developer-name:hover {
-  color: var(--primary);
-  cursor: pointer;
+.user-description {
+    font-size: 14px;
+    margin: 1rem 50px;
+    padding: 0.25rem;
+    width: 23rem;
+    height: 80px;
 }
 
-.developer-description {
-  font-size: 14px;
-  margin: 1rem 50px;
-  padding: 0.25rem;
-  width: 23rem;
-  height: 80px;
+.user-job {
+    font-size: 14px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    background-color: var(--dark-3);
+    border-radius: 10px;
 }
 
-.developer-job {
-  font-size: 14px;
-  padding: 5px 10px;
-  margin-top: 10px;
-  background-color: var(--dark-3);
-  border-radius: 10px;
+.user-social {
+    margin-top: 0.5rem;
 }
 
-.developer-social {
-  margin-top: 0.5rem;
+.user-social ul {
+    list-style: none;
 }
 
-.developer-social ul {
-  list-style: none;
+
+.user-social ul li {
+    display: inline-block;
+    font-size: 18px;
 }
 
-.developer-social ul li {
-  display: inline-block;
-  font-size: 18px;
+.user-social ul li i {
+    padding: 0.5rem;
 }
 
-.developer-social ul li i {
-  padding: 0.5rem;
+
+.user-social ul li i:hover {
+    cursor: pointer;
+    background-color: var(--dark-3);
+    border-radius: 8px;
 }
 
-.developer-social ul li i:hover {
-  cursor: pointer;
-  background-color: var(--dark-3);
-  border-radius: 8px;
-}
 
+
+/* Footer */
 .footer {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     padding: 2rem 9%;
     background: var(--bg-color);
 }
 
 .footer-text p {
-    font-size: 1.6rem;
+    font-size: 1.6rem; 
 }
 
 .footer-iconTop a {
@@ -408,18 +478,148 @@ nav ul {
     box-shadow: 0 0 1rem var(--main-color);
 }
 
+
 .footer-iconTop a i {
     font-size: 2.4rem;
     color: var(--second-bg-color);
 }
 
 
+
+/* Sign In Section */
+#singin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--bg-color);
+}
+
+#singin form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--dark-1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#singin form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#singin form input {
+    width: 90%;
+    padding: 3px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--dark-2);
+    color: white;
+}
+
+#singin form input:focus {
+    background-color: var(--dark-3);
+}
+
+#singin form button {
+    width: 50%;
+    padding: 4px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--main-color);
+    color: black;
+    cursor: pointer;
+}
+
+#singin form button:hover {
+    background-color: var(--primary);
+}
+
+#singin form p {
+    margin-top: 20px;
+} 
+
+#singin form p a {
+    color: var(--primary);
+}
+
+/* Sign Up Section */
+#singup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--bg-color);
+}
+
+#singup form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--dark-1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#singup form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#singup form input {
+    width: 90%;
+    padding: 3px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--dark-2);
+    color: white;
+}
+
+#singup form input:focus {
+    background-color: var(--dark-3);
+}
+
+#singup form button {
+    width: 50%;
+    padding: 4px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--main-color);
+    color: black;
+    cursor: pointer;
+}
+
+#singup form button:hover {
+    background-color: var(--primary);
+}
+
+#singup form p {
+    margin-top: 20px;
+}
+
+#singup form p a {
+    color: var(--primary);
+}
+
+/* Media Queries */
 @media (max-width: 1200px) {
     html {
         font-size: 55%;
     }
 }
-
 
 @media (max-width: 991px) {
     .header {
@@ -430,7 +630,7 @@ nav ul {
         padding-bottom: 7rem;
     }
 
-    .portafolio {
+    .review {
         margin-bottom: 7rem;
     }
 
@@ -442,7 +642,6 @@ nav ul {
         padding: 2rem 3%;
     }
 }
-
 
 @media (max-width: 768px) {
     #menu-icon {
@@ -501,18 +700,17 @@ nav ul {
         margin-bottom: 3rem;
     }
 
-    .portafolio h2 {
+    .review h2 {
         margin-bottom: 3rem;
     }
 
-    .portafolio-container {
+    .review-container {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 617px) {
-
-    .portafolio-container {
+    .review-container {
         grid-template-columns: 1fr;
     }
 }
