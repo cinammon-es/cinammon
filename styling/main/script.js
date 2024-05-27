@@ -1,4 +1,4 @@
-// ********//
+
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 let navtree = document.querySelector('nav-tree')
