@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cinammon Host</title>
-    <meta name="description" content="Explora nuestros servicios de hosting, VPS, Minecraft host, y más en cinammon.es. Únete a nuestro servidor de Discord para cualquier consulta.">
+    <meta name="description"
+          content="Explora nuestros servicios de hosting, VPS, Minecraft host, y más en cinammon.es. Únete a nuestro servidor de Discord para cualquier consulta.">
     <meta name="keywords" content="hosting, VPS, Minecraft host, servicios, Discord, cinammon">
-    
+
     <link rel="stylesheet" href="/styling/main/style.css">
     <link rel="icon" href="/images/main/favicon.ico">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
@@ -33,8 +34,10 @@
         <h3>Bienvenido a</h3>
         <h1 id="home-title"><span>cinammon.es</span></h1>
         <h3>Página web de <span>Cinammon Host</span></h3>
-        <p>¡Bienvenido a cinammon.es! Explora nuestros servicios de hosting, VPS, Minecraft host, etc. Recuerda que tienes el servidor de Discord donde puedes hacer todo tipo de preguntas y dudas. Estamos encantados de tenerte en nuestra página web, ¡disfruta!</p>
-        <br>  <br> 
+        <p>¡Bienvenido a cinammon.es! Explora nuestros servicios de hosting, VPS, Minecraft host, etc. Recuerda que
+            tienes el servidor de Discord donde puedes hacer todo tipo de preguntas y dudas. Estamos encantados de
+            tenerte en nuestra página web, ¡disfruta!</p>
+        <br> <br>
         <a href="https://discord.gg/wRddFGqMdx" class="btn">Servidor de Discord</a>
     </div>
     <div class="home-img">
@@ -48,7 +51,9 @@
     </div>
     <div class="about-content">
         <h2 class="heading" id="about-title">¿Por qué <span>Escogernos</span>?</h2>
-        <p>Ofrecemos un servicio de hosting completo, rápido e interactivo. Garantizamos continuidad sin cortes y contamos con personal disponible 24/7 para resolver cualquier problema. Disfruta de una experiencia de hosting fiable y eficiente con soporte dedicado en todo momento.</p>
+        <p>Ofrecemos un servicio de hosting completo, rápido e interactivo. Garantizamos continuidad sin cortes y
+            contamos con personal disponible 24/7 para resolver cualquier problema. Disfruta de una experiencia de
+            hosting fiable y eficiente con soporte dedicado en todo momento.</p>
         <a href="https://discord.gg/uRCTQZdgUh" class="btn">Más información</a>
     </div>
 </section>
@@ -60,7 +65,8 @@
             <div class="account-box">
                 <i class="bx bx-user"></i>
                 <h3>Perfil</h3>
-                <p>En tu perfil podrás ver toda la información de tu cuenta, como tu correo, tu nombre, tu ID, y más.</p>
+                <p>En tu perfil podrás ver toda la información de tu cuenta, como tu correo, tu nombre, tu ID, y
+                    más.</p>
                 <a href="/htmls/account/profile.html" class="btn">Ver más</a>
             </div>
             <div class="account-box">
@@ -91,7 +97,8 @@
         <div class="services-box">
             <i class="bx bx-code-alt"></i>
             <h3>Páginas <span>Web</span></h3>
-            <p>Ofrecemos un servicio de hosting para páginas web con un 100% de uptime, baja latencia y soporte dedicado para resolver cualquier problema.</p>
+            <p>Ofrecemos un servicio de hosting para páginas web con un 100% de uptime, baja latencia y soporte dedicado
+                para resolver cualquier problema.</p>
             <a href="/htmls/services/websitehosting.html" class="btn">Ver más</a>
         </div>
         <div class="services-box">
@@ -126,8 +133,9 @@
         <h3>Bienvenido a</h3>
         <h1 id="billing-title"><span>billing.cinammon.es</span></h1>
         <h3>Página web de ventas de <span>Cinammon Host</span></h3>
-        <p>Explora nuestros servicios de hosting, VPS, Minecraft host, y más. Únete a nuestro servidor de Discord para cualquier consulta. Estamos encantados de tenerte aquí, ¡disfruta!</p>
-        <br>  <br>
+        <p>Explora nuestros servicios de hosting, VPS, Minecraft host, y más. Únete a nuestro servidor de Discord para
+            cualquier consulta. Estamos encantados de tenerte aquí, ¡disfruta!</p>
+        <br> <br>
         <a href="https://billing.cinammon.es" class="btn">Nuestro sistema de Financiación</a>
     </div>
     <div class="home-img">
@@ -136,76 +144,77 @@
 </section>
 
 <section class="review" id="review">
-		<div class="team-user">
-			<h2 class="heading">¿Qué dicen nuestros <span>Usuarios</span>?</h2>
-        </div> 
-		<div class="users-container"> 
-			<div class="user-info">
-				<div class="user-banner">
-					<div class="user-background"
-					style="background: url( https://i.imgur.com/HRBtb3F.gif) center center / cover no-repeat">
-				</div>
-				<div class="user-profile">
-					<img
-					src="https://japi.rest/discord/v1/user/1007718032417751081/avatar"
-					width="64px" height="64px"
-					style="position: relative; border-radius: 100%; border: 2px solid rgb(242, 244, 251); filter: drop-shadow(rgba(0, 0, 0, 0.16) 0px 32px 72px);">
-					<a class="user-name">
-						! Samu
-					</a>
-				</div>
-			</div>
-			<div class="user-job">
-				Cliente Frecuente
-			</div>
-			<div class="user-description">
-				¡Me ha encantado!, Su servicio de alojamiento de bots es muy bueno: No se cae, su rendimiento hace que mi bot sea bastante eficaz.
-			</div>
-			<div class="user-social">
-				<ul>
-					<div class="social-media">
-						<li>
-							<a href="https://discord.com/users/1007718032417751081" target="_blank"><i
-								class="bx bxl-discord-alt"></i></a>
-							</li>
-						</div>  
-					</ul>
-				</div>
-			</div>
-			<div class="user-info">
-				<div class="user-banner">
-					<div class="user-background"
-					style="background: url( https://i.imgur.com/HRBtb3F.gif) center center / cover no-repeat">
-				</div>
-				<div class="user-profile">
-					<img
-					src="https://japi.rest/discord/v1/user/807579685663146004/avatar"
-					width="64px" height="64px"
-					style="position: relative; border-radius: 100%; border: 2px solid rgb(242, 244, 251); filter: drop-shadow(rgba(0, 0, 0, 0.16) 0px 32px 72px);">
-					<a class="user-name">
-						Lokito
-					</a>
-				</div>
-			</div>
-			<div class="user-job">
-				Cliente Frecuente
-			</div>
-			<div class="user-description">
-				Yo poniendo "me ha encantado Es buen host y No se cae"
-			</div>
-			<div class="user-social">
-				<ul>
-					<div class="social-media">
-						<li>
-							<a href="https://discord.com/users/1007718032417751081" target="_blank"><i
-								class="bx bxl-discord-alt"></i></a>
-							</li>
-						</div>  
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
+    <div class="team-user">
+        <h2 class="heading">¿Qué dicen nuestros <span>Usuarios</span>?</h2>
+    </div>
+    <div class="users-container">
+        <div class="user-info">
+            <div class="user-banner">
+                <div class="user-background"
+                     style="background: url( https://i.imgur.com/HRBtb3F.gif) center center / cover no-repeat">
+                </div>
+                <div class="user-profile">
+                    <img
+                            src="https://japi.rest/discord/v1/user/1007718032417751081/avatar"
+                            width="64px" height="64px"
+                            style="position: relative; border-radius: 100%; border: 2px solid rgb(242, 244, 251); filter: drop-shadow(rgba(0, 0, 0, 0.16) 0px 32px 72px);">
+                    <a class="user-name">
+                        ! Samu
+                    </a>
+                </div>
+            </div>
+            <div class="user-job">
+                Cliente Frecuente
+            </div>
+            <div class="user-description">
+                ¡Me ha encantado!, Su servicio de alojamiento de bots es muy bueno: No se cae, su rendimiento hace que
+                mi bot sea bastante eficaz.
+            </div>
+            <div class="user-social">
+                <ul>
+                    <div class="social-media">
+                        <li>
+                            <a href="https://discord.com/users/1007718032417751081" target="_blank"><i
+                                        class="bx bxl-discord-alt"></i></a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div class="user-info">
+            <div class="user-banner">
+                <div class="user-background"
+                     style="background: url( https://i.imgur.com/HRBtb3F.gif) center center / cover no-repeat">
+                </div>
+                <div class="user-profile">
+                    <img
+                            src="https://japi.rest/discord/v1/user/807579685663146004/avatar"
+                            width="64px" height="64px"
+                            style="position: relative; border-radius: 100%; border: 2px solid rgb(242, 244, 251); filter: drop-shadow(rgba(0, 0, 0, 0.16) 0px 32px 72px);">
+                    <a class="user-name">
+                        Lokito
+                    </a>
+                </div>
+            </div>
+            <div class="user-job">
+                Cliente Frecuente
+            </div>
+            <div class="user-description">
+                Yo poniendo "me ha encantado Es buen host y No se cae"
+            </div>
+            <div class="user-social">
+                <ul>
+                    <div class="social-media">
+                        <li>
+                            <a href="https://discord.com/users/1007718032417751081" target="_blank"><i
+                                        class="bx bxl-discord-alt"></i></a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!--
     <section class="signup" id="signup">

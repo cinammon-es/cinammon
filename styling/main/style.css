@@ -197,7 +197,7 @@ span {
 .account {
     justify-content: center;
     align-items: center;
-    height: 100vh; 
+    height: 100vh;
 }
 
 .account h2 {
@@ -211,7 +211,7 @@ span {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 2rem; 
+    gap: 2rem;
 }
 
 .account-box {
@@ -223,13 +223,12 @@ span {
     max-width: 400px;
     padding: 20px;
     border-radius: 10px;
-    background-color: var(--second-bg-color); 
+    background-color: var(--second-bg-color);
 }
 
 .account-box:hover {
-    border: .2rem solid var(--main-color); 
-    transform: scale(1.03);
-    transform: ease-in-out;
+    border: .2rem solid var(--main-color);
+    transform: scale(1.03); 
 }
 
 .account-container .account-box:hover {
@@ -449,7 +448,6 @@ nav ul {
 }
 
 
-
 /* Footer */
 .footer {
     display: flex;
@@ -461,7 +459,7 @@ nav ul {
 }
 
 .footer-text p {
-    font-size: 1.6rem; 
+    font-size: 1.6rem;
 }
 
 .footer-iconTop a {
@@ -483,7 +481,6 @@ nav ul {
     font-size: 2.4rem;
     color: var(--second-bg-color);
 }
-
 
 
 /* Sign In Section */
@@ -544,7 +541,7 @@ nav ul {
 
 #singin form p {
     margin-top: 20px;
-} 
+}
 
 #singin form p a {
     color: var(--primary);

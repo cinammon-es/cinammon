@@ -1,4 +1,3 @@
-
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 let navtree = document.querySelector('nav-tree')
@@ -26,12 +25,13 @@ window.onscroll = () => {
                 links.classList.remove('active');
                 document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
             });
-        };
+        }
+        ;
 
     });
     // sticky navbar //
     let header = document.querySelector('header');
-    
+
     header.classList.toggle('sticky', window.scrollY > 100);
 
     // *********************************************** //
@@ -47,4 +47,4 @@ ScrollReveal({
     delay: 200
 });
 
-ScrollReveal().reveal('.home-content, .heading', { delay: 500 });
+ScrollReveal().reveal('.home-content, .heading', {delay: 500});
