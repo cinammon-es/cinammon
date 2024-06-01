@@ -17,13 +17,13 @@
     --text-color: #fff;
     --main-color: #fcf0b6;
     --primary: lightseagreen;
-    --secondary: #080808;
-    --dark-1: #202225;
-    --dark-2: #36393f;
-    --dark-3: rgba(255, 255, 255, 0.08);
-    --blue: #004ff9;
-    --red: #ed4245;
-    --green: #57F287;
+  --secondary: #080808;
+  --dark-1: #202225;
+  --dark-2: #36393f;
+  --dark-3: rgba(255, 255, 255, 0.08);
+  --blue: #004ff9;
+  --red: #ed4245;
+  --green: #57F287;
 }
 
 html {
@@ -103,7 +103,7 @@ section {
 }
 
 span {
-    color: var(--main-color); 
+    color: var(--main-color);
 }
 
 .home-content h1 {
@@ -217,7 +217,7 @@ span {
 
 .services-container .services-box {
     flex: 1 1 30rem;
-    background-image: url("/images/services/db_banner.jpg");
+    background-image: url("/images/services/vps_banner.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
