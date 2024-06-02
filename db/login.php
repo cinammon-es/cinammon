@@ -8,16 +8,16 @@ header('Content-Type: application/json');
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-if (!$data || !isset($data['email']) || !isset($data['password'])) {
+if (!$data || !isset($data['username']) || !isset($data['password'])) {
     echo json_encode(['success' => false, 'message' => 'Datos de entrada no válidos.']);
     exit;
 }
 
-$email = $data['email'];
+$email = $data['username'];
 $password = $data['password'];
 
 try {
-    $query = $conn->prepare("SELECT * FROM users WHERE email = :email LIMIT 1");
+    $query = $conn->prepare("SELECT * FROM users WHERE email = :email OR username = :email LIMIT 1");
     $query->bindParam(':email', $email);
     $query->execute();
     $user = $query->fetch(PDO::FETCH_ASSOC);
