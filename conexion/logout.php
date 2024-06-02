@@ -16,9 +16,9 @@ if (ini_get("session.use_cookies")) {
         $params["domain"],
         $params["secure"],
         $params["httponly"]
-    );
+    ); 
 }
-
+ 
 // Finalmente, destruir la sesión
 session_destroy();
 
