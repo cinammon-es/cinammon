@@ -8,7 +8,7 @@ try {
     $conn = new PDO("mysql:host=$servername", $username, $password);
     // Configurar el modo de error PDO para excepciones
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
+
     // Crear la base de datos
     $sql = "CREATE DATABASE IF NOT EXISTS cinammon_db";
     $conn->exec($sql);
@@ -29,12 +29,12 @@ try {
 
     // Mensaje de éxito
     echo "La base de datos y la tabla fueron creadas exitosamente.<br>";
-    
+
     // Redirigir a la página de inicio de sesión
     header("Location: register.php");
     exit;
 
-} catch(PDOException $e) {
+} catch (PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();
 }
 
@@ -49,8 +49,8 @@ $conn = null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body> 
-    <h1>¡La base de datos y la tabla fueron creadas exitosamente!</h1>
-    <p>Redirigiendo a la página de registro...</p>
+<body>
+<h1>¡La base de datos y la tabla fueron creadas exitosamente!</h1>
+<p>Redirigiendo a la página de registro...</p>
 </body>
 </html>
