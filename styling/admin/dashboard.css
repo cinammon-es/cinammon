@@ -9,7 +9,7 @@
     text-decoration: none;
     border: none;
     outline: none;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; 
     font-family: 'Poppins', sans-serif;
 }
 
@@ -23,7 +23,7 @@
     --secondary: #080808;
     --dark-1: #202225;
     --dark-2: #36393f;
-    --dark-3: rgba(255, 255, 255, 0.08);
+    --dark-3: rgba(152, 134, 134, 0.08);
     --blue: #00c3f987;
     --red: #ed4245;
     --green: #57f279a5;
@@ -88,6 +88,77 @@ body {
     margin-bottom: 20px;
 }
 
+
+.profile  {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.profile p { 
+    color: #ff8686;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+}
+.active {
+    display: block;
+}
+.section.active {
+    display: block;
+}
+.section {
+    display: none;
+    padding: 20px;
+}
+.card { 
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba( 20, 30, 30, 30.21);
+    margin-top: 20px;
+}
+.info {
+    font-size: 16px;
+    color: #ffffff;
+} 
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+input {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
 /* Table Styles */
 table {
     width: 100%;
@@ -110,6 +181,14 @@ th {
 
 tbody tr:nth-child(odd) {
     background-color: var(--dark-1);
+} 
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
 }
 
 @keyframes fadeIn {
@@ -120,5 +199,35 @@ tbody tr:nth-child(odd) {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .content {
+        margin-left: 200px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .sidebar {
+        width: 100px;
+    }
+
+    .content {
+        margin-left: 100px;
+    }
+
+    .sidebar ul li {
+        margin: 10px 0;
+    }
+
+    .sidebar ul li a {
+        font-size: 1rem;
     }
 }
