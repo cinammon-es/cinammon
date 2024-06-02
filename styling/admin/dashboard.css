@@ -200,6 +200,53 @@ tbody tr:nth-child(odd) {
         opacity: 1;
         transform: translateY(0);
     }
+} 
+.warning-box {
+    border: 1px solid rgb(255, 242, 210);
+    background-color: rgba(255, 248, 220, 0.7);
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+.warning-box strong {
+    color: rgb(251, 221, 146);
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.warning-box a {
+    color: rgba(30, 144, 255, 1);
+    text-decoration: none;
+}
+
+.warning-box a:hover {
+    text-decoration: underline;
+}
+
+.tip-box {
+    border: 1px solid rgba(135, 206, 235, 0.7);
+    background-color: rgba(224, 255, 255, 0.7);
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+.tip-box strong {
+    color: rgba(70, 130, 180, 1);
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.tip-box a {
+    color: rgba(30, 144, 255, 1);
+    text-decoration: none;
+}
+
+.tip-box a:hover {
+    text-decoration: underline;
 }
 
 
