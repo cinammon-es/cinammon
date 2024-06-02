@@ -24,10 +24,6 @@ try {
         password VARCHAR(255) NOT NULL
     );";
     $conn->exec($sql);
-
-    // Redirigir a la página de registro
-    header("Location: /admin/register.php");
-    exit;
 } catch (PDOException $e) {
     // Mensaje de error
     $errorMessage = $e->getMessage();
