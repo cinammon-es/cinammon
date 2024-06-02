@@ -1,9 +1,13 @@
 <?php
+// Iniciar la sesión
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = ""; // Cambia esto si tu contraseña de MySQL es diferente
-$dbname = "cinammon_db";
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['username'])) {
+    // Redirigir a la página de inicio de sesión
+    header("Location: /dashboard/dashboard.php");
+    exit;
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
@@ -50,8 +54,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Inicio de Sesión</title>
     <link rel="icon" href="/images/main/favicon.ico">
-    <link rel="stylesheet" href="/styling/admin/style.css">
+    <link rel="stylesheet" href="/styling/admin/login.css">
 </head>
+
 <body>
     <div class="container">
         <div class="image-container">
