@@ -1,0 +1,151 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Root Variables */
+:root {
+    --bg-color: #1f242d;
+    --second-bg-color: #323946;
+    --text-color: #fff;
+    --main-color: #fcf0b6;
+    --primary: lightseagreen;
+    --secondary: #080808;
+    --dark-1: #202225;
+    --dark-2: #36393f;
+    --dark-3: rgba(255, 255, 255, 0.08);
+    --blue: #00c3f987;
+    --red: #ed4245;
+    --green: #57f279a5;
+}
+
+html {
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+/* Body Styles */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* Container Styles */
+.container {
+    display: flex;
+    align-items: center;
+    background-color: var(--second-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Image Styles */
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 350px; /* Adjust the width to make the image smaller */
+    padding: 2rem;
+}
+
+.image-container img {
+    width: 100%;
+}
+
+.image-container p {
+    margin-top: 0.5rem;
+
+    font-size: 0.9rem;
+}
+
+/* Register Form Styles */
+.register {
+    flex: 1;
+    padding: 2rem;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.register h1 {
+    margin-bottom: 1.5rem;
+    color: var(--main-color);
+    font-weight: 700;
+}
+
+.register .form-control {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    background-color: var(--dark-2);
+    color: var(--text-color);
+    border: 1px solid var(--dark-3);
+    font-size: 1rem;
+}
+
+.register .btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary);
+    color: black;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.register .btn:hover {
+    background-color: var(--main-color);
+    transform: translateY(-2px);
+}
+
+.register p {
+    margin-top: 1rem;
+    color: var(--main-color);
+    font-size: 0.9rem;
+}
+
+.register p a {
+    color: var(--blue);
+    transition: color 0.3s ease;
+}
+
+.register p a:hover {
+    color:  var(--green)
+}
+
+.register p.error {
+    color: var(--red);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

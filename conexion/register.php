@@ -1,10 +1,8 @@
 <?php
-session_start();
 $servername = "localhost";
 $username = "root";
 $password = ""; // Cambia esto si tu contraseña de MySQL es diferente
 $dbname = "cinammon_db";
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
@@ -39,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['email'] = $inputEmail;
 
             // Redirigir al usuario a la página principal
-            header("Location: /main/index.php");
+            header("Location: /conexion/login.php");
             exit;
         }
     } catch (PDOException $e) {
@@ -57,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Registro de Usuario</title>
     <link rel="icon" href="/images/main/favicon.ico">
-    <link rel="stylesheet" href="/styling/admin/style.css">
+    <link rel="stylesheet" href="/styling/admin/signup.css">
 </head>
 
 <body>
