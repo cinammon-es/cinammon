@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = ""; // Cambia esto si tu contraseña de MySQL es diferente
+$password = ""; 
 
 try {
     // Crear una conexión
