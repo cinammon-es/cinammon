@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then((data) => {
             console.log(data);
-            if (data.error) {
+            if (!data.success) {
                 const errorElement = document.querySelector('.error');
                 errorElement.textContent = data.message;
                 console.log(data.message);
