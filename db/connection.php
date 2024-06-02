@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = ""; 
+$password = "";
 $datbase = "cinammon_db";
 try {
     // Crear una conexión
@@ -26,34 +26,10 @@ try {
     $conn->exec($sql);
 
     // Redirigir a la página de registro
-    header("Location: register.php");
+    header("Location: /admin/register.php");
     exit;
-
 } catch (PDOException $e) {
     // Mensaje de error
     $errorMessage = $e->getMessage();
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configuración de la Base de Datos</title>
-</head>
-<body>
-<h1>
-    <?php 
-    if (isset($errorMessage)) {
-        echo "Error al crear la base de datos o la tabla: " . htmlspecialchars($errorMessage);
-    } else {
-        echo "¡La base de datos y la tabla fueron creadas exitosamente!";
-    }
-    ?>
-</h1>
-<?php if (!isset($errorMessage)) { ?>
-    <p>Redirigiendo a la página de registro...</p>
-<?php } ?>
-</body>
-</html>
