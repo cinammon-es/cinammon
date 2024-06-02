@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log(data);
 
-        fetch("http://localhost:3000/admin/login.php", {
+        fetch("http://localhost:3000/db/login.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -47,8 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("token", token);
             window.location.href = "http://localhost:3000/admin/dashboard.php";
         })
-        .catch((error) => {
-            console.error("Error:", error);
+        .catch((e) => {
+            console.log(e);
             const errorElement = document.querySelector('.error');
             errorElement.textContent = "Error en la solicitud de inicio de sesión.";
         });
