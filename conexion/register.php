@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = ""; // Cambia esto si tu contraseña de MySQL es diferente
-$dbname = "cinammon_db";
+$dbname = "cinammon_db"; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
