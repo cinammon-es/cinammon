@@ -5,7 +5,7 @@ session_start();
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['username'])) {
     // Redirigir a la página de inicio de sesión
-    header("Location: /dashboard/dashboard.php");
+    header("Location: /dashboard/dashboard.php"); 
     exit;
 }
 
