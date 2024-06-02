@@ -2,10 +2,15 @@
 header('Content-Type: application/json');
 
 // Configuración de la base de datos
-include 'connection.php';
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
+include '../db/connection.php'; 
 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$datbase = "cinammon_db";
+
+// Crear una conexión
+$conn = new mysqli($servername, $username, $password, $datbase); 
 // Verificar conexión
 if ($conn->connect_error) {
     die(json_encode(['success' => false, 'message' => 'Error de conexión a la base de datos']));
@@ -20,7 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("i", $id);
 
         if ($stmt->execute()) {
-            echo json_encode(['success' => true, 'message' => 'Cuenta eliminada correctamente']);
+            $stmt->close();
+            $conn->close();
+            header('Location: ../admin/users.php');
+            exit();
         } else {
             echo json_encode(['success' => false, 'message' => 'Error al eliminar la cuenta']);
         }
@@ -29,8 +37,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo json_encode(['success' => false, 'message' => 'ID no proporcionado']);
     }
-} else {
-    echo json_encode(['success' => false, 'message' => 'Método no permitido']);
+} else { 
+    if (isset($_SESSION['id'])) {
+        $id = $_SESSION['id'];
+        $sql = "SELECT * FROM users WHERE id=$id";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            echo json_encode(['success' => true, 'data' => $row]);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Usuario no encontrado']);
+        }
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Usuario no autenticado']);
+    }
 }
 
 $conn->close();
