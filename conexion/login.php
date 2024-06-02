@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Verificar la contraseña
             if (password_verify($inputPassword, $user['password'])) {
                 $_SESSION['username'] = $user['username'];
-                header("Location: /php/main/index.php");
+                header("Location: /main/index.php");
                 exit;
             } else {
                 $error = "Contraseña incorrecta.";
