@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['email'] = $inputEmail;
 
             // Redirigir al usuario a la página principal
-            header("Location: /php/main/index.php");
+            header("Location: /main/index.php");
             exit;
         }
     } catch (PDOException $e) {
