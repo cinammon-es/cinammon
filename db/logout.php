@@ -16,13 +16,8 @@ if (ini_get("session.use_cookies")) {
 // Finalmente, destruir la sesión
 session_destroy();
 
-// Devolver una respuesta JSON indicando que la sesión ha sido cerrada
-header('Content-Type: application/json');
-if (session_status() === PHP_SESSION_NONE) {
-    echo json_encode(['success' => true]);
-} else {
-    echo json_encode(['success' => false]);
-}
+// Redirigir al usuario a la página de login
+header('Location: /admin/login.php');
 exit;
 
 $conn = null;
