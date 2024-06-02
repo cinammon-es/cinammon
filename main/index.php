@@ -77,7 +77,7 @@
                     <h3>Perfil</h3>
                     <p>En tu perfil podrás ver toda la información de tu cuenta, como tu correo, tu nombre, tu ID, y
                         más.</p>
-                    <a href=" /account/profile.html" class="btn">Ver más</a>
+                    <a href="/admin/register.php" class="btn">Ver más</a>
                 </div>
                 <div class="account-box">
                     <i class="bx bx-credit-card"></i>
