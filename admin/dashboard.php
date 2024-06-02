@@ -52,7 +52,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
         <div id="settings" class="section">
             <h1>Configuración</h1>
             <div class="card">
-            <h2> Actualizar Perfil</h2>
+                <h2> Actualizar Perfil</h2>
                 <p>Actualiza tu información personal.</p>
                 <form method="POST">
                     <input type="hidden" id="id" name="id" value="1"> <!-- ID del usuario a actualizar -->
@@ -64,10 +64,18 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
                     <input type="password" id="password" name="password" required><br>
                     <button type="submit">Actualizar perfil</button>
                 </form>
+            </div>
+            <div class="card">
+                <h2>Eliminar Cuenta</h2>
+                <p style="color: red;">
+                    Estás a punto de eliminar tu cuenta. Esta acción no se puede deshacer.
+                </p>
+                <div class="warning-box" style="color: black;">
+                    <strong>WARNING</strong>
+                    <p> Esta acción no se puede deshacer. Todos los datos asociados con esta cuenta se eliminarán permanentemente.</p>
+                </div>
 
-                <p> Eliminar Cuenta</p>
-                <p>¿Estás seguro de que deseas eliminar tu cuenta?</p>
-                <form action=" /db/delete-account.php" method="post">
+                <form action="/db/delete-account.php" method="post">
                     <button type="submit">Eliminar Cuenta</button>
                 </form>
             </div>
@@ -81,7 +89,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
                 <h2>Detalles de la Cuenta</h2>
                 <p>Detalles de la configuración de la cuenta del usuario.</p>
             </div>
-        </div> 
+        </div>
 
         <div id="logout" class="section">
             <link rel="stylesheet" href="/styling/admin/logout.js">
@@ -90,7 +98,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
                 <h2>Salir de la Cuenta</h2>
                 <p>¿Estás seguro de que deseas cerrar sesión?</p>
                 <form action=" /db/logout.php" method="post">
-                    <button type="submit">Cerrar Sesión</button>
+                    <button id="delete-account">Eliminar Cuenta</button>
                 </form>
             </div>
         </div>
