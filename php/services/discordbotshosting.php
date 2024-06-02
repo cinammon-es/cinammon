@@ -7,24 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>https://cinammon.es/services/discordbot</title>
 
-    <link rel="stylesheet" href="/styling/services/styledb.css">
+    <link rel="stylesheet" href="/styling/main/style.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 
 </head>
 
 <body>
-
     <header class="header">
-        <a href="/php/index.php#home" class="logo">cinammon.es</a>
-
-        <i class="bx bx-menu" id="menu-icon"></i>
-
-        <nav class="navbar">
-            <a href="/php/index.php#home" class="active">Inicio</a>
-            <a href="/php/index.php#about" class="active">Nosotros</a>
-            <a href="/php/index.php#services" class="active">Servicios</a>
-            <a href="/php/index.php#billing" class="active">Facturación</a>
-            <a href="/php/index.php#portafolio" class="active">Reseñas</a>
+        <a href="https://discord.gg/wRddFGqMdx" class="logo">cinammon.es</a>
+        <i class="bx bx-menu" id="menu-icon" aria-label="Menu icon"></i>
+        <nav aria-label="Main Navigation">
+            <ul class="navbar">
+                <li><a href="/php/main/index.php#home" class="active">Inicio</a></li>
+                <li><a href="/php/main/index.php#about">Nosotros</a></li>
+                <li><a href="/php/main/index.php##account">Cuenta</a></li>
+                <li><a href="/php/main/index.php##services">Servicios </a>
+                    <ul class="navbar-dropdown">
+                        <li><a href="/php/services/websitehosting.php">Páginas Web</a></li>
+                        <li><a href="/php/services/discordbotshosting.php">Bots de Discord</a></li>
+                        <li><a href="/php/services/minecrafthosting.php">Minecraft</a></li>
+                        <li><a href="/php/services/dedicatedservers.php">Servidores Dedicados</a></li>
+                        <li><a href="/php/services/vpshosting.php">VPS</a></li>
+                    </ul>
+                </li>
+                <li><a href="/php/main/index.php#billing">Facturación</a></li>
+                <li><a href="/php/main/index.php#review">Reseñas</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -37,37 +45,36 @@
                 <i class="bx bx-bot"></i>
                 <h3>free plan<span>.cinammon.es</span></h3> <br>
                 <div class="banner-text">
-                    <h1>Alojamiento Discord Bot de alta calidad</h1>
-                    <p>Una nueva aventura te espera con solo unos clics...</p>
-                    <a href="/" class="btn">contrata</a> <br> <br>
+                    <h1> </h1>
+                    <p>...</p>
+                    <a href="/php/prices/prices.php#discordbot-freeplan" class="btn">contrata</a> <br> <br>
                 </div>
             </div>
             <div class="services-box">
-                <i class="bx bx-bot"></i>
+                <i class="bx bx-server"></i>
                 <h3>basic plan<span>.cinammon.es</span></h3> <br>
                 <div class="banner-text">
-                    <h1>Alojamiento Discord Bot de alta calidad</h1>
-                    <p>Una nueva aventura te espera con solo unos clics...</p>
-                    <a href="/index.php" class="btn">contrata</a> <br> <br>
+                    <h1> </h1>
+                    <p>...</p>
+                    <a href="/php/prices/prices.php#discordbot-basicplan" class="btn">contrata</a> <br> <br>
                 </div>
             </div>
             <div class="services-box">
-                <i class="bx bx-bot"></i>
+                <i class="bx bx-cloud"></i>
                 <h3>premium plan<span>.cinammon.es</span></h3> <br>
                 <div class="banner-text">
-                    <h1>Alojamiento Discord Bot de alta calidad</h1>
-                    <p>Una nueva aventura te espera con solo unos clics...</p>
-                    <a href="/index.php" class="btn">contrata</a> <br> <br>
+                    <h1> </h1>
+                    <p>...</p>
+                    <a href="/php/prices/prices.php#discordbot-premiumplan" class="btn">contrata</a> <br> <br>
                 </div>
             </div>
-
             <div class="services-box">
-                <i class="bx bx-bot"></i>
+                <i class="bx bx-server"></i>
                 <h3>ultimate plan<span>.cinammon.es</span></h3> <br>
                 <div class="banner-text">
-                    <h1>Alojamiento Discord Bot de alta calidad</h1>
-                    <p>Una nueva aventura te espera con solo unos clics...</p>
-                    <a href="/index.php" class="btn">contrata</a> <br> <br>
+                    <h1> </h1>
+                    <p>...</p>
+                    <a href="/php/prices/prices.php#discordbot-ultimateplan" class="btn">contrata</a> <br> <br>
                 </div>
             </div>
         </div>
@@ -84,7 +91,7 @@
         </div>
     </footer>
 
-    <script src="/styling/services/scriptdb.js"></script> 
+    <script src="/styling/services/scriptdb.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
 
 </body>
