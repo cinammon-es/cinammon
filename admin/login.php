@@ -21,7 +21,7 @@
                 <label for="username" class="sr-only">Nombre de Usuario</label> <br>
                 <input class="form-control" type="text" id="username" name="username" required placeholder="Nombre de Usuario">
                 <input class="form-control" type="password" id="password" name="password" required placeholder="Contraseña">
-                <button class="btn" type="submit" name="login" value="login">Iniciar Sesión</button>
+                <button class="btn" name="login" value="login">Iniciar Sesión</button>
                 <p>¿Olvidaste tu contraseña? <a href="/admin/forgot-password.php">Recupérala</a></p>
             </form>
             <p>¿No tienes una cuenta? <a href="/admin/register.php">Regístrate</a></p>
