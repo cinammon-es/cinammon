@@ -75,3 +75,21 @@ form.addEventListener('submit', async (e) => {
         alert(data.message);
     }
 }); 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const response = await fetch(' /db/delete-user.php', {
+            method: 'POST',
+            body: formData
+        });
+        const data = await response.json();
+        if (data.success) {
+            alert(data.message);
+        } else {
+            alert(data.message);
+        }
+    });
+});
