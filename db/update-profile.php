@@ -2,10 +2,15 @@
 header('Content-Type: application/json');
 
 // Configuración de la base de datos
-include  'connection.php';
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
+include  '../db/connection.php'; 
 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$datbase = "cinammon_db";
+
+// Crear una conexión
+$conn = new mysqli($servername, $username, $password, $datbase);
 // Verificar conexión
 if ($conn->connect_error) {
     die(json_encode(['success' => false, 'message' => 'Error de conexión a la base de datos']));
