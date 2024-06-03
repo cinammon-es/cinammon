@@ -5,7 +5,7 @@ session_start();
 // Configuración de la base de datos
 include '../db/connection.php';
 
-class Auth
+class Auth 
 {
     private $conn;
 
