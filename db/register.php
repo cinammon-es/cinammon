@@ -3,7 +3,7 @@ session_start();
 
 header('Content-Type: application/json');
 
-require_once '../db/connection.php';
+require_once '../db/connection.php'; 
 
 class User {
     private $conn;
