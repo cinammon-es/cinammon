@@ -60,21 +60,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-const update = document.querySelector('form');
-update.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const formData = new FormData(form);
-    const response = await fetch(' /db/update-profile.php', {
-        method: 'POST',
-        body: formData
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        
+        try {
+            const response = await fetch('../db/update-profile.php', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                alert(data.message);
+            } else {
+                alert(data.message);
+            }
+        } catch (error) {
+            console.error('Hubo un problema con la operación fetch:', error);
+            alert('Error al actualizar el perfil. Verifica la respuesta del servidor.');
+        }
     });
-    const data = await response.json();
-    if (data.success) {
-        alert(data.message);
-    } else {
-        alert(data.message);
-    }
-}); 
+});
 
 
 const form = document.querySelector('form');

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -18,7 +21,6 @@
             <a href="/main/index.php#home">
                 <img src="/images/main/favicon.ico" alt="Logo" width="50">
             </a>
-
         </div>
         <h2>Dashboard</h2>
         <nav>
@@ -33,7 +35,11 @@
 
     <div class="content">
         <div id="home" class="section active">
-            <h1>Inicio</h1>
+            <h1> Bienvenid@ al Panel de Control</h1>
+            <div class="card">
+                <h2> ¡Hola, <?php echo $_SESSION['username']; ?>!</h2>
+                <p>¡Bienvenid@ al panel de control de cinammon.es! Aquí puedes ver información general sobre tu cuenta y actualizar tu perfil.</p>
+            </div>
             <div class="card">
                 <h2>Información General</h2>
                 <p>Detalles de la información general del usuario.</p>
@@ -46,9 +52,9 @@
         <div id="settings" class="section">
             <h1>Configuración</h1>
             <div class="card">
-                <h2> Actualizar Perfil</h2>
+                <h2>Actualizar Perfil</h2>
                 <p>Actualiza tu información personal.</p>
-                <form method="POST">
+                <form method="POST" id="updateProfileForm">
                     <input type="hidden" id="id" name="id" value="1"> <!-- ID del usuario a actualizar -->
                     <label for="username">Nombre de usuario:</label>
                     <input type="text" id="username" name="username" required><br>
@@ -68,37 +74,32 @@
                     <strong>WARNING</strong>
                     <p> Esta acción no se puede deshacer. Todos los datos asociados con esta cuenta se eliminarán permanentemente.</p>
                 </div>
-
-                <form method='POST'>
+                <form method='POST' id="deleteAccountForm">
                     <button type="submit" id="delete">Eliminar Cuenta</button>
                 </form>
             </div>
-
-
         </div>
 
         <div id="profile" class="section">
             <h1>Perfil</h1>
             <div class="card">
-                <h2>Detalles de la Cuenta</h2>
-                <p>Detalles de la configuración de la cuenta del usuario.</p>
+                <h2>Detalles de la cuenta de <?php echo $_SESSION['username']; ?>. </h2>
+                <p>
+                    <strong>Nombre de usuario:</strong> <?php echo $_SESSION['username']; ?><br>
+                    <strong>Correo electrónico:</strong> <?php echo $_SESSION['email']; ?><br>
+                </p>
             </div>
         </div>
-
         <div id="logout" class="section">
-            <link rel="stylesheet" href="/styling/admin/logout.js">
             <h1>Cerrar Sesión</h1>
             <div class="card">
-                <h2>Salir de la Cuenta</h2>
-                <p>¿Estás seguro de que deseas cerrar sesión?</p>
-                <form action=" /db/logout.php" method="post">
-                    <button id="delete-account">Cerrar sesión</button>
+                <h2>¿Estás seguro de que deseas cerrar sesión?</h2>
+                <form method="POST" action="/admin/login.php">
+                    <button type="submit">Cerrar Sesión</button>
                 </form>
             </div>
         </div>
-    </div>
-
+    </div> 
 </body>
-<footer></footer>
 
 </html>

@@ -26,8 +26,8 @@ class Auth {
                 $_SESSION['id'] = $user['id'];
 
                 return ['success' => true, 'message' => 'Inicio de sesión exitoso.'];
-            } else {
-                return ['success' => false, 'message' => $user ? 'La contraseña es incorrecta.' : 'El correo electrónico no existe.'];
+            } else { 
+                return ['success' => false, 'message' => $user ? 'La contraseña es incorrecta.' : 'El usuario no existe.'];
             }
         } catch (PDOException $e) {
             return ['success' => false, 'message' => 'Error al iniciar sesión: ' . $e->getMessage()];
