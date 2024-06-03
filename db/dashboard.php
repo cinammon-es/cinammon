@@ -16,7 +16,7 @@ class Auth
 
     public function authenticate($username, $password)
     {
-        $password = mysqli_real_escape_string($this->conn, $password);
+        $password = mysqli_real_escape_string($this->conn, $password); // https://www.php.net/manual/es/mysqli.real-escape-string.php
 
         // Consultar la base de datos
         $query = "SELECT * FROM users WHERE username = '$username'";
