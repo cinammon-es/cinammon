@@ -27,18 +27,10 @@ class Auth {
 
                 return ['success' => true, 'message' => 'Inicio de sesión exitoso.'];
             } else {
-                if (!$user) {
-                    return ['success' => false, 'message' => 'El correo electrónico no existe.'];
-                } else {
-                    return ['success' => false, 'message' => 'La contraseña es incorrecta.'];
-                }
+                return ['success' => false, 'message' => $user ? 'La contraseña es incorrecta.' : 'El correo electrónico no existe.'];
             }
         } catch (PDOException $e) {
-            if ($e->errorInfo[1] == 1062) {
-                return ['success' => false, 'message' => 'El correo electrónico ya está en uso.'];
-            } else {
-                return ['success' => false, 'message' => 'Error al iniciar sesión.'];
-            }
+            return ['success' => false, 'message' => 'Error al iniciar sesión: ' . $e->getMessage()];
         }
     }
 }
@@ -48,11 +40,13 @@ $data = json_decode(file_get_contents('php://input'), true);
 if (!$data || !isset($data['username']) || !isset($data['password'])) {
     echo json_encode(['success' => false, 'message' => 'Datos de entrada no válidos.']);
     exit;
-} 
+}
 
-$email = $data['username'];
-$password = $data['password'];
+$email = htmlspecialchars($data['username']);
+$password = htmlspecialchars($data['password']);
 
+$database = new Database();
+$conn = $database->getConnection();
 $auth = new Auth($conn);
 $response = $auth->login($email, $password);
 echo json_encode($response);
