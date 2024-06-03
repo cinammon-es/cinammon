@@ -227,8 +227,8 @@
         </div>
     </footer>
 
+    <script src="/styling/main/script.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script> 
 </body>
 
-<script src="/styling/main/script.js"></script>
-<script src="https://unpkg.com/scrollreveal"></script> 
 </html>
