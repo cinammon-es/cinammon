@@ -1,14 +1,68 @@
 <?php
-// login.php
+header('Content-Type: application/json');
 session_start();
 
-// Supongamos que el usuario se autentica correctamente
-$username = 'usuario'; 
-$password = 'contraseña';
+// Configuración de la base de datos
+include '../db/connection.php';
 
-// Configurar las variables de sesión
-$_SESSION['username'] = $username;
-$_SESSION['password'] = $password;
+class Auth
+{
+    private $conn;
 
-// Redirigir al dashboard
-header("Location: /admin/login.php");
+    public function __construct($db)
+    {
+        $this->conn = $db;
+    }
+
+    public function authenticate($username, $password)
+    {
+        // Sanitizar entradas
+        $username = mysqli_real_escape_string($this->conn, $username);
+        $password = mysqli_real_escape_string($this->conn, $password);
+
+        // Consultar la base de datos
+        $query = "SELECT * FROM users WHERE username = '$username'";
+        $result = $this->conn->query($query);
+
+        if ($result->num_rows == 1) {
+            $user = $result->fetch_assoc();
+            if (password_verify($password, $user['password'])) {
+                return ['success' => true, 'user' => $user];
+            } else {
+                return ['success' => false, 'message' => 'Contraseña incorrecta'];
+            }
+        } else {
+            return ['success' => false, 'message' => 'Nombre de usuario no encontrado'];
+        }
+    }
+
+    public function setSession($user)
+    {
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['email'] = $user['email'];
+    }
+}
+
+// Instanciar la conexión existente
+global $conn;
+$auth = new Auth($conn);
+
+// Obtener los datos del formulario
+
+$data = json_decode(file_get_contents('php://input'), true);
+if (!$data || !isset($data['username']) || !isset($data['password'])) {
+    echo json_encode(['success' => false, 'message' => 'No exite ningun dato']);
+    exit;
+} else {  
+    echo json_encode(['success' => true, 'message' => 'Datos encontrados']);
+}
+
+// Autenticar al usuario
+$response = $auth->authenticate($username, $password);
+
+if ($response['success']) {
+    $auth->setSession($response['user']);
+    echo json_encode(['success' => true, 'message' => 'Autenticación exitosa']);
+} else {
+    echo json_encode(['success' => false, 'message' => $response['message']]);
+}
