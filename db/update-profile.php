@@ -37,21 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo json_encode(['success' => false, 'message' => 'Datos incompletos']);
     }
-} else {
-    if (isset($_SESSION['id'])) {
-        $id = $_SESSION['id'];
-        $sql = "SELECT * FROM users WHERE id=$id";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            echo json_encode(['success' => true, 'data' => $row]);
-        } else {
-            echo json_encode(['success' => false, 'message' => 'Usuario no encontrado']);
-        }
-    } else {
-        echo json_encode(['success' => false, 'message' => 'Usuario no autenticado']);
-    }
+} else { 
+    echo json_encode(['success' => false, 'message' => 'Método de solicitud no válido']);
 }
 
 $conn->close();
