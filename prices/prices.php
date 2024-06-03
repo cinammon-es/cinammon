@@ -24,15 +24,15 @@
         <li>
           <a href=" /main/index.php#services" class="active">Servicios</a>
           <ul class="navbar-dropdown">
-            <li><a href=" /services/websitehosting.php">Páginas Web</a></li>
+            <li><a href="/services/websitehosting.php">Páginas Web</a></li>
             <li>
-              <a href=" /services/discordbotshosting.php">Bots de Discord</a>
+              <a href="/services/discordbotshosting.php">Bots de Discord</a>
             </li>
-            <li><a href=" /services/minecrafthosting.php">Minecraft</a></li>
+            <li><a href="/services/minecrafthosting.php">Minecraft</a></li>
             <li>
-              <a href=" /services/dedicatedservers.php">Servidores Dedicados</a>
+              <a href="/services/dedicatedservers.php">Servidores Dedicados</a>
             </li>
-            <li><a href=" /services/vpshosting.php">VPS</a></li>
+            <li><a href="/services/vpshosting.php">VPS</a></li>
           </ul>
         </li>
         <li>

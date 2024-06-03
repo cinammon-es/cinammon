@@ -19,8 +19,8 @@
             <ul class="navbar">
                 <li><a href=" /main/index.php#home" class="active">Inicio</a></li>
                 <li><a href=" /main/index.php#about">Nosotros</a></li>
-                <li><a href=" /main/index.php##account">Cuenta</a></li>
-                <li><a href=" /main/index.php##services">Servicios </a>
+                <li><a href=" /main/index.php#account">Cuenta</a></li>
+                <li><a href=" /main/index.php#services">Servicios </a>
                     <ul class="navbar-dropdown">
                         <li><a href=" /services/websitehosting.php">Páginas Web</a></li>
                         <li><a href=" /services/discordbotshosting.php">Bots de Discord</a></li>

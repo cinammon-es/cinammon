@@ -24,7 +24,10 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
 <body>
     <div class="sidebar">
         <div class="logo">
-            <img src="/images/main/favicon.ico" alt="Logo" width="50">
+            <a href="/main/index.php#home">
+                <img src="/images/main/favicon.ico" alt="Logo" width="50">
+            </a>
+
         </div>
         <h2>Dashboard</h2>
         <nav>
@@ -75,8 +78,8 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
                     <p> Esta acción no se puede deshacer. Todos los datos asociados con esta cuenta se eliminarán permanentemente.</p>
                 </div>
 
-                <form action="/db/delete-account.php" method="post">
-                    <button type="submit">Eliminar Cuenta</button>
+                <form method='POST'>
+                    <button type="submit" id="delete">Eliminar Cuenta</button>
                 </form>
             </div>
 
@@ -98,7 +101,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
                 <h2>Salir de la Cuenta</h2>
                 <p>¿Estás seguro de que deseas cerrar sesión?</p>
                 <form action=" /db/logout.php" method="post">
-                    <button id="delete-account">Eliminar Cuenta</button>
+                    <button id="delete-account">Cerrar sesión</button>
                 </form>
             </div>
         </div>

@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var exampleChart = new Chart(ctx, {
         type: 'bar', // Tipo de gráfico
         data: {
-            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'], // Etiquetas para el eje X
             datasets: [{
                 label: 'Usuarios Registrados',
-                data: [10, 20, 30, 40, 50, 60], // Datos de ejemplo
+                data: [12, 19, 3, 5, 2, 3], // Datos para el eje Y
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -60,8 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-const form = document.querySelector('form');
-form.addEventListener('submit', async (e) => {
+const update = document.querySelector('form');
+update.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
     const response = await fetch(' /db/update-profile.php', {
@@ -76,20 +76,19 @@ form.addEventListener('submit', async (e) => {
     }
 }); 
 
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form');
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(form);
-        const response = await fetch(' /db/delete-user.php', {
-            method: 'POST',
-            body: formData
-        });
-        const data = await response.json();
-        if (data.success) {
-            alert(data.message);
-        } else {
-            alert(data.message);
-        }
+
+const form = document.querySelector('form');
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const response = await fetch('/db/delete.php', {
+        method: 'POST',
+        body: formData
     });
+    const data = await response.json();
+    if (data.success) {
+        alert(data.message);
+    } else {
+        alert(data.message);
+    }
 });
