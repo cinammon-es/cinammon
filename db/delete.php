@@ -14,7 +14,7 @@ class User {
 
     public function deleteAccountByUsername($username) {
         // Escapar datos para evitar SQL Injection
-        $username = mysqli_real_escape_string($this->conn, $username);
+        $username = mysqli_real_escape_string($this->conn, $username); // https://www.php.net/manual/es/mysqli.real-escape-string.php
 
         $sql = "DELETE FROM users WHERE username='$username'";
 
