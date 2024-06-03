@@ -5,6 +5,9 @@ session_start(); // Asegurarse de que la sesión está iniciada
 // Configuración de la base de datos
 include '../db/connection.php';
 
+/**
+ * Clase user para la gestión de usuarios.
+ */
 class User { 
     private $conn;
 
@@ -26,7 +29,12 @@ class User {
     }
 }
 
-// Instanciar la conexión existente
+/**
+ * Elimina la cuenta de un usuario.
+ *
+ * @param string $username El nombre de usuario.
+ * @return array Un array con el resultado de la operación.
+ */
 global $conn;
 $user = new User($conn);
 
@@ -45,6 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(['success' => false, 'message' => 'Usuario no autenticado']);
     }
 } else {
-    echo json_encode(['success' => false, 'message' => 'Método de solicitud no válido']);
+    echo json_encode(['success' => false, 'message' => 'Error en la solicitud']);
 }
 ?>

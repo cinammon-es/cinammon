@@ -6,12 +6,23 @@ include('../db/connection.php');
 
 header('Content-Type: application/json');
 
+/**
+ * Clase para la autenticación de usuarios.
+ */
 class Auth {
     private $conn;
 
     public function __construct($db) {
         $this->conn = $db;
     }
+
+    /**
+     * Inicia sesión con un correo electrónico o nombre de usuario y contraseña.
+     *
+     * @param string $email El correo electrónico o nombre de usuario.
+     * @param string $password La contraseña del usuario.
+     * @return array Un array con el resultado de la autenticación.
+     */
 
     public function login($email, $password) {
         try {
@@ -35,6 +46,10 @@ class Auth {
     }
 }
 
+/**
+ * Obtiene los datos de entrada y los procesa.
+ */
+
 $data = json_decode(file_get_contents('php://input'), true);
 
 if (!$data || !isset($data['username']) || !isset($data['password'])) {
@@ -42,9 +57,16 @@ if (!$data || !isset($data['username']) || !isset($data['password'])) {
     exit;
 }
 
+/**
+ * Inicia la autenticación.
+ */
+
 $email = htmlspecialchars($data['username']);
 $password = htmlspecialchars($data['password']);
 
+/**
+ * Inicia la sesión.
+ */
 $database = new Database();
 $conn = $database->getConnection();
 $auth = new Auth($conn);
