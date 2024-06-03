@@ -5,7 +5,7 @@ session_start(); // Asegurarse de que la sesión está iniciada
 // Configuración de la base de datos
 include '../db/connection.php';
 
-class User {
+class User { 
     private $conn;
 
     public function __construct($db) {
