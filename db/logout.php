@@ -2,7 +2,7 @@
 session_start();
 
 // Configuración de la base de datos
-include '../db/connection.php';
+include '../db/connection.php'; 
 
 class SessionManager {
     public function destroySession() {
