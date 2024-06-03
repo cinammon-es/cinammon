@@ -1,31 +1,42 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$datbase = "cinammon_db";
-try {
-    // Crear una conexión
-    $conn = new PDO("mysql:host=$servername", $username, $password);
-    // Configurar el modo de error PDO para excepciones
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+class Database {
+    protected $servername = "localhost";
+    protected $username = "root";
+    protected $password = "";
+    protected $dbname = "cinammon_db";
+    protected $conn;
 
-    // Crear la base de datos
-    $sql = "CREATE DATABASE IF NOT EXISTS cinammon_db";
-    $conn->exec($sql);
+    public function __construct() {
+        try {
+            $this->conn = new PDO("mysql:host=$this->servername", $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->createDatabase();
+        } catch (PDOException $e) {
+            die("Connection failed: " . $e->getMessage());
+        }
+    }
 
-    // Usar la base de datos creada
-    $conn->exec("USE cinammon_db");
+    private function createDatabase() {
+        $sql = "CREATE DATABASE IF NOT EXISTS $this->dbname";
+        $this->conn->exec($sql);
+        $this->conn->exec("USE $this->dbname");
+        $this->createTables();
+    }
 
-    // Crear la tabla users
-    $sql = "CREATE TABLE IF NOT EXISTS users (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        username VARCHAR(50) NOT NULL,
-        email VARCHAR(50) NOT NULL,
-        password VARCHAR(255) NOT NULL
-    );";
-    $conn->exec($sql);
-} catch (PDOException $e) {
-    // Mensaje de error
-    $errorMessage = $e->getMessage();
+    private function createTables() {
+        $sql = "CREATE TABLE IF NOT EXISTS users (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            username VARCHAR(50) NOT NULL,
+            email VARCHAR(50) NOT NULL,
+            password VARCHAR(255) NOT NULL
+        );";
+        $this->conn->exec($sql);
+    }
+
+    public function getConnection() {
+        return $this->conn;
+    }
+
+    
 }
 ?>
