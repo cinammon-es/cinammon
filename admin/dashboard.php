@@ -1,12 +1,3 @@
-<?php
-// dashboard.php
-session_start();
-
-if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
-    header("Location: /admin/login.php");
-    exit;
-}
-?>
 
 <!DOCTYPE html>
 <html lang="es">
