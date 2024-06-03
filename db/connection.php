@@ -4,7 +4,7 @@ class Database {
     protected $username = "root";
     protected $password = "";
     protected $dbname = "cinammon_db";
-    protected $conn;
+    protected $conn; 
 
     public function __construct() {
         try {
