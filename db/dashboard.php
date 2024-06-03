@@ -16,8 +16,6 @@ class Auth
 
     public function authenticate($username, $password)
     {
-        // Sanitizar entradas
-        $username = mysqli_real_escape_string($this->conn, $username);
         $password = mysqli_real_escape_string($this->conn, $password);
 
         // Consultar la base de datos
