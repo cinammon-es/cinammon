@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Registro</title>
@@ -28,7 +29,8 @@
             <p id="error" class="error"></p>
         </div>
     </div>
-    
-    <script src="/register.js"></script>
+
+    <script src="/styling/admin/register.js"></script>
 </body>
+
 </html>
