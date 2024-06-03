@@ -1,58 +1,77 @@
 <?php
 header('Content-Type: application/json');
+session_start(); // Asegurarse de que la sesión está iniciada
 
 // Configuración de la base de datos
-include  '../db/connection.php'; 
+include '../db/connection.php';
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$datbase = "cinammon_db";
+class User {
+    private $conn;
 
-// Crear una conexión
-$conn = new mysqli($servername, $username, $password, $datbase);
-// Verificar conexión
-if ($conn->connect_error) {
-    die(json_encode(['success' => false, 'message' => 'Error de conexión a la base de datos']));
+    public function __construct($db) {
+        $this->conn = $db;
+    }
+
+    public function updateProfile($id, $username, $email, $password) {
+        // Escapar datos para evitar SQL Injection
+        $id = mysqli_real_escape_string($this->conn, $id);
+        $username = mysqli_real_escape_string($this->conn, $username);
+        $email = mysqli_real_escape_string($this->conn, $email);
+        $password = mysqli_real_escape_string($this->conn, $password);
+
+        $sql = "UPDATE users SET username='$username', email='$email', password='$password' WHERE id=$id";
+
+        if ($this->conn->query($sql) === TRUE) {
+            return ['success' => true, 'message' => 'Perfil actualizado correctamente'];
+        } else {
+            return ['success' => false, 'message' => 'Error al actualizar el perfil: ' . $this->conn->error];
+        }
+    }
+
+    public function getProfile($id) {
+        // Escapar datos para evitar SQL Injection
+        $id = mysqli_real_escape_string($this->conn, $id);
+
+        $sql = "SELECT * FROM users WHERE id=$id";
+        $result = $this->conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return ['success' => true, 'data' => $row];
+        } else {
+            return ['success' => false, 'message' => 'Usuario no encontrado'];
+        }
+    }
 }
 
+// Instanciar la conexión existente
+global $conn;
+$user = new User($conn);
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = isset($_POST['id']) ? (int)$_POST['id'] : 0;
-    $username = isset($_POST['username']) ? $_POST['username'] : '';
-    $email = isset($_POST['email']) ? $_POST['email'] : '';
-    $password = isset($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : '';
+    $data = json_decode(file_get_contents('php://input'), true);
+    $id = isset($data['id']) ? (int)$data['id'] : 0;
+    $username = isset($data['username']) ? $data['username'] : '';
+    $email = isset($data['email']) ? $data['email'] : '';
+    $password = isset($data['password']) ? password_hash($data['password'], PASSWORD_DEFAULT) : '';
 
     if ($id && $username && $email && $password) {
-        $sql = "UPDATE users SET username=?, email=?, password=? WHERE id=?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssi", $username, $email, $password, $id);
-
-        if ($stmt->execute()) {
-            echo json_encode(['success' => true, 'message' => 'Perfil actualizado correctamente']);
-        } else {
-            echo json_encode(['success' => false, 'message' => 'Error al actualizar el perfil']);
-        }
-
-        $stmt->close();
+        $response = $user->updateProfile($id, $username, $email, $password);
+        echo json_encode($response);
     } else {
         echo json_encode(['success' => false, 'message' => 'Datos incompletos']);
     }
 } else {
     if (isset($_SESSION['id'])) {
         $id = $_SESSION['id'];
-        $sql = "SELECT * FROM users WHERE id=$id";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            echo json_encode(['success' => true, 'data' => $row]);
-        } else {
-            echo json_encode(['success' => false, 'message' => 'Usuario no encontrado']);
-        }
+        $response = $user->getProfile($id);
+        echo json_encode($response);
     } else {
-        echo json_encode(['success' => false, 'message' => 'Usuario no autenticado']);
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            echo json_encode(['success' => false, 'message' => 'Usuario no autenticado']);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Método de solicitud no válido']);
+        }
     }
 }
-
-$conn->close();
 ?>

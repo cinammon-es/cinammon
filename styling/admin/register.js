@@ -1,27 +1,33 @@
-document.getElementById('registerForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('registerForm');
+    const errorElement = document.getElementById('error');
 
-    const form = e.target;
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
 
-    try {
-        const response = await fetch(' /db/register.php', {
+        const formData = {
+            username: document.getElementById('username').value,
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value
+        };
+
+        fetch('/admin/register.php', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                window.location.href = '/admin/login.php'; // Redirige a la página de inicio de sesión
+            } else {
+                errorElement.textContent = data.error;
+            }
+        })
+        .catch((error) => {
+            errorElement.textContent = 'Error al registrar el usuario.';
         });
-
-        const result = await response.json();
-
-        if (result.success) {
-            window.location.href = '/admin/login.php';
-        } else {
-            document.getElementById('error').textContent = result.error;
-        }
-    } catch (error) {
-        document.getElementById('error').textContent = 'Error de conexión con el servidor.';
-    }
+    });
 });
