@@ -48,7 +48,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 if (!$data || !isset($data['username']) || !isset($data['password'])) {
     echo json_encode(['success' => false, 'message' => 'Datos de entrada no válidos.']);
     exit;
-}
+} 
 
 $email = $data['username'];
 $password = $data['password'];
