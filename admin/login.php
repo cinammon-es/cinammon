@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -25,7 +24,7 @@
                 <p>¿Olvidaste tu contraseña? <a href="/admin/forgot-password.php">Recupérala</a></p>
             </form>
             <p>¿No tienes una cuenta? <a href="/admin/register.php">Regístrate</a></p>
-            <p class="error" style="color:red;"></p>
+            <p id="error" class="error" style="color:red;"></p>
         </div>
     </div>
     <script src="/styling/admin/login.js"></script>
