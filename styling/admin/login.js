@@ -1,56 +1,52 @@
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM completamente cargado y analizado");
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('loginForm');
+    const errorElement = document.getElementById('error');
 
-    const form = document.getElementById("loginForm");
-    const username = document.getElementById("username");
-    const password = document.getElementById("password");
+    if (!form || !errorElement) {
+        console.error('No se encontraron los elementos del formulario o de error.');
+        return;
+    }
 
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        console.log("Enviando formulario...");
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
 
-        if (!username.value || !password.value) {
-            console.log("Todos los campos son obligatorios");
+        const username = document.getElementById('username');
+        const password = document.getElementById('password');
+
+        if (!username || !password) {
+            console.error('No se encontraron los campos de formulario necesarios.');
+            errorElement.textContent = 'No se encontraron los campos de formulario necesarios.';
             return;
         }
 
-        const data = {
+        const formData = {
             username: username.value,
-            password: password.value,
+            password: password.value
         };
 
-        console.log(data);
-
-        fetch("http://localhost:3000/db/login.php", {
-            method: "POST",
+        fetch('../db/login.php', {
+            method: 'POST',
             headers: {
-                "Content-Type": "application/json",
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(formData)
         })
-        .then((response) => {
+        .then(response => {
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error('Network response was not ok ' + response.statusText);
             }
             return response.json();
         })
-        .then((data) => {
-            console.log(data);
-            if (!data.success) {
-                const errorElement = document.querySelector('.error');
-                errorElement.textContent = data.message;
-                console.log(data.message);
-                return;
+        .then(data => {
+            if (data.success) {
+                window.location.href = '../admin/dashboard.php'; // Redirige a la página de administración
+            } else {
+                errorElement.textContent = data.message || 'Error desconocido.';
             }
-
-            const token = data.token;
-            localStorage.setItem("token", token);
-            window.location.href = "http://localhost:3000/admin/dashboard.php";
         })
-        .catch((e) => {
-            console.log(e);
-            const errorElement = document.querySelector('.error');
-            errorElement.textContent = "Error en la solicitud de inicio de sesión.";
+        .catch((error) => {
+            console.error('Hubo un problema con la operación fetch:', error);
+            errorElement.textContent = 'Error al iniciar sesión. Verifica la respuesta del servidor.';
         });
     });
 });
