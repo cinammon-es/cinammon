@@ -94,6 +94,7 @@ class Database
             UNIQUE(username),
             FOREIGN KEY (username) REFERENCES users(username)
         );";
+
         
         $sqlTrigger = "CREATE TRIGGER before_afk_update
         BEFORE UPDATE ON afk
@@ -111,43 +112,15 @@ class Database
                 SET NEW.afk_start_time = NOW();
             END IF;
         END;";
-
-        $this->conn->exec($sqlUsers);  
-        if ($this->conn->exec($sqlUsers) === false) {
-            echo "Error al crear la tabla users\n";
-        } else {
-            echo "Tabla users creada con éxito\n";
-        }
-
+        
+        $this->conn->exec($sqlUsers); 
         $this->conn->exec($sqlAfk);
-        if ($this->conn->exec($sqlAfk) === false) {
-            echo "Error al crear la tabla afk\n";
-        } else {
-            echo "Tabla afk creada con éxito";
-        }
-
         $this->conn->exec($sqlAfkUsers);
-        if ($this->conn->exec($sqlAfkUsers) === false) {
-            echo "Error al crear la tabla afk_users\n";
-        } else {
-            echo "Tabla afk_users creada con éxito";
-        }
-
         $this->conn->exec($sqlAfkSummary);
-        if ($this->conn->exec($sqlAfkSummary) === false) {
-            echo "Error al crear la tabla afk_summary\n";
-        } else {
-            echo "Tabla afk_summary creada con éxito\n";
-        }
-
+        $this->conn->exec("DROP TRIGGER IF EXISTS before_afk_update");
         $this->conn->exec($sqlTrigger);
-        if ($this->conn->exec($sqlTrigger) === false) {
-            echo "Error al crear el trigger before_afk_update\n";
-        } else {
-            echo "Trigger before_afk_update creado con éxito\n";
-        }
     }
-    
+
     /**
      * Función para crear las vistas de la base de datos
      */
@@ -167,14 +140,7 @@ class Database
         
         $this->conn->exec($sqlAfkSummaryView);
         $this->conn->exec($sqlActiveUsersView);
-
-        if ($this->conn->exec($sqlAfkSummaryView) === false) {
-            echo "Error al crear la vista afk_summary_view\n";
-        } else {
-            echo "Vista afk_summary_view creada con éxito\n";
-        } 
     } 
-    
 }
 /**
  * Crear una instancia de la clase Database
