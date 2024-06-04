@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AFK Manager</title>
     <link rel="stylesheet" href="/styling/admin/afk.css">
 </head>
@@ -32,18 +32,16 @@
                 <input type="email" id="emailActive" name="email" required>
                 <button type="submit">Set Active</button>
             </form>
-        </section>
-
-        <section>
-            <h2>AFK Summary</h2>
-            <button id="getAfkSummary">Get AFK Summary</button>
-            <pre id="afkSummary"></pre>
-        </section>
-
+        </section> 
         <section>
             <h2>AFK Stats</h2>
             <button id="getAfkStats">Get AFK Stats</button>
             <pre id="afkStats"></pre>
+        </section>
+        <section>
+            <h2>AFK Summary</h2>
+            <button id="getAfkSummary">Get AFK Summary</button>
+            <pre id="afkSummary"></pre>
         </section>
     </div>
 

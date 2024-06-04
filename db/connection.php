@@ -1,5 +1,7 @@
 <?php
-
+/** 
+ * Clase para la conexión a la base de datos y la creación de tablas y vistas
+ */
 class Database
 {
     private $servername = "localhost";
@@ -8,6 +10,9 @@ class Database
     private $dbname = "cinammon_db";
     private $conn;
 
+    /**
+     * Constructor de la clase Database
+     */
     public function __construct()
     {
         try {
@@ -19,7 +24,10 @@ class Database
         }
     } 
     
-     // Obtener la conexión a la base de datos
+    /**
+     * Función para obtener la conexión a la base de datos
+     * @return PDO
+     */
     public function getConnection() {
         $this->conn = null;
         try {
@@ -31,6 +39,9 @@ class Database
         return $this->conn;
     }
 
+    /**
+     * Función para crear la base de datos, tablas y vistas
+     */
     private function createDatabase()
     {
         $sql = "CREATE DATABASE IF NOT EXISTS $this->dbname";
@@ -40,6 +51,9 @@ class Database
         $this->createViews();
     }
 
+    /**
+     * Función para crear las tablas de la base de datos
+     */
     private function createTables()
     {
         $sqlUsers = "CREATE TABLE IF NOT EXISTS users (
@@ -60,6 +74,15 @@ class Database
             total_afk_time INT DEFAULT 0,
             UNIQUE(username, email),
             FOREIGN KEY (username) REFERENCES users(username)
+        );";
+
+        $sqlAfkUsers = "CREATE TABLE IF NOT EXISTS afk_users (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            username VARCHAR(100) NOT NULL,
+            email VARCHAR(100) NOT NULL,
+            status VARCHAR(20) NOT NULL DEFAULT 'afk',
+            afk_start_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            afk_end_time TIMESTAMP NULL
         );";
         
         $sqlAfkSummary = "CREATE TABLE IF NOT EXISTS afk_summary (
@@ -89,13 +112,17 @@ class Database
             END IF;
         END;";
         
-        $this->conn->exec($sqlUsers);
+        $this->conn->exec($sqlUsers); 
         $this->conn->exec($sqlAfk);
+        $this->conn->exec($sqlAfkUsers);
         $this->conn->exec($sqlAfkSummary);
         $this->conn->exec("DROP TRIGGER IF EXISTS before_afk_update");
         $this->conn->exec($sqlTrigger);
     }
 
+    /**
+     * Función para crear las vistas de la base de datos
+     */
     private function createViews()
     {
         $this->conn->exec("DROP VIEW IF EXISTS afk_summary_view");
@@ -114,7 +141,8 @@ class Database
         $this->conn->exec($sqlActiveUsersView);
     } 
 }
-
-// Crear una instancia de la clase Database para ejecutar las funciones de creación
+/**
+ * Crear una instancia de la clase Database
+ */
 $db = new Database();
 ?>

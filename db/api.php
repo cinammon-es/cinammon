@@ -5,7 +5,6 @@ header('Content-Type: application/json');
 
 try {
     $afkManager = new AfkManager();
-
     $action = $_GET['action'] ?? '';
 
     switch ($action) {
@@ -40,11 +39,7 @@ try {
             break;
 
         default:
-            if ($action !== '') {
-                echo json_encode(['status' => 'error', 'message' => 'Invalid action']);
-            } else {
-                echo json_encode(['status' => 'error', 'message' => 'Action parameter is required']);
-            }
+            echo json_encode(['status' => 'invalid action']);
             break;
     }
 } catch (Exception $e) {
