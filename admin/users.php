@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,45 +12,47 @@
     <!-- Estilos globales -->
     <link rel="stylesheet" href="/styling/admin/users.css">
 </head>
+
 <body>
 
-<div class="container">
-    <h2>Lista de Usuarios Registrados</h2>
+    <div class="container">
+        <h2>Lista de Usuarios Registrados</h2>
 
-    <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "cinammon_db";
+        <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "cinammon_db";
 
-    // Crear conexión
-    $conn = new mysqli($servername, $username, $password, $dbname);
+        // Crear conexión
+        $conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Verificar conexión
-    if ($conn->connect_error) {
-        die("Conexión fallida: " . $conn->connect_error);
-    }
-
-    // Consulta SQL para seleccionar todos los usuarios
-    $sql = "SELECT id, username AS nombre_usuario, email FROM users";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        // Crear una tabla HTML para mostrar los resultados
-        echo "<table><tr><th>ID</th><th>Nombre de Usuario</th><th>Email</th></tr>";
-        
-        // Salida de cada fila de datos
-        while($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row["id"]. "</td><td>" . $row["nombre_usuario"]. "</td><td>" . $row["email"]. "</td></tr>";
+        // Verificar conexión
+        if ($conn->connect_error) {
+            die("Conexión fallida: " . $conn->connect_error);
         }
-        echo "</table>";
-    } else {
-        echo "0 resultados";
-    }
-    $conn->close();
-    ?>
 
-</div>
+        // Consulta SQL para seleccionar todos los usuarios
+        $sql = "SELECT id, username AS nombre_usuario, email FROM users";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            // Crear una tabla HTML para mostrar los resultados
+            echo "<table><tr><th>ID</th><th>Nombre de Usuario</th><th>Email</th></tr>";
+
+            // Salida de cada fila de datos
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr><td>" . $row["id"] . "</td><td>" . $row["nombre_usuario"] . "</td><td>" . $row["email"] . "</td></tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "0 resultados";
+        }
+        $conn->close();
+        ?>
+
+    </div>
 
 </body>
+
 </html>

@@ -43,20 +43,22 @@ class User {
         if ($this->userExists($username)) {
             return ['success' => false, 'error' => 'El usuario ya existe.'];
         }
-        
-        /**
-         * @var PDOStatement $stmt Sentencia preparada para insertar un nuevo usuario en la base de datos. https://www.php.net/manual/en/class.pdostatement.php 
-         */
-        $stmt = $this->db->prepare('INSERT INTO users (username, email, password) VALUES (:username, :email, :password)');
-        $stmt->execute([
-            'username' => $username,
-            'email' => $email,
-            'password' => password_hash($password, PASSWORD_BCRYPT)
-        ]);
-        /**
-         * @var array $response Respuesta de la operación.
-         */
-        return ['success' => true];
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return ['success' => false, 'error' => 'El correo electrónico no es válido.'];
+        }
+
+        try {
+            $stmt = $this->db->prepare('INSERT INTO users (username, email, password) VALUES (:username, :email, :password)');
+            $stmt->execute([
+                'username' => $username,
+                'email' => $email,
+                'password' => password_hash($password, PASSWORD_BCRYPT)
+            ]);
+            return ['success' => true];
+        } catch (PDOException $e) {
+            return ['success' => false, 'error' => 'Error al registrar el usuario: ' . $e->getMessage()];
+        }
     }
 }
 
@@ -72,9 +74,9 @@ if (!isset($data['username']) || !isset($data['email']) || !isset($data['passwor
 }
 
 // Limpiar los datos de entrada
-$data['username'] = htmlspecialchars($data['username']);
-$data['email'] = htmlspecialchars($data['email']);
-$data['password'] = htmlspecialchars($data['password']);
+$data['username'] = htmlspecialchars(strip_tags(trim($data['username'])));
+$data['email'] = htmlspecialchars(strip_tags(trim($data['email'])));
+$data['password'] = htmlspecialchars(strip_tags(trim($data['password'])));
 
 // Crear instancia de la base de datos
 $database = new Database();

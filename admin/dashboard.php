@@ -26,6 +26,7 @@ session_start();
         <nav>
             <ul>
                 <li><a href="#home" class="active">Inicio</a></li>
+                <li><a href="#afk">AFK</a></li>
                 <li><a href="#profile">Perfil</a></li>
                 <li><a href="#settings">Configuración</a></li>
                 <li><a href="#logout">Cerrar sesión</a></li>
@@ -49,6 +50,22 @@ session_start();
                 <canvas id="exampleChart" width="400" height="200"></canvas>
             </div>
         </div>
+
+        <div id="afk" class="section">
+            <h1>AFK</h1>
+            <div class="card">
+                <h2>Estado AFK</h2>
+                <p>¡Estás en modo AFK! Esto significa que no estás disponible en este momento.</p>
+                <button> Desactivar AFK</button>
+                <button> Ver lista de usuarios AFK</button>
+
+                <div class="card">
+                    <h2>Lista de Usuarios AFK</h2>
+                    <p>Lista de usuarios que están en modo AFK.</p> 
+                </div>
+            </div>
+        </div> 
+
         <div id="settings" class="section">
             <h1>Configuración</h1>
             <div class="card">

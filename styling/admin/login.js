@@ -2,17 +2,24 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('loginForm');
     const errorElement = document.getElementById('error');
 
+    // Verifica si los elementos del formulario y de error existen
     if (!form || !errorElement) {
         console.error('No se encontraron los elementos del formulario o de error.');
         return;
     }
 
+    /**
+     * Evento que se ejecuta cuando se envía el formulario.
+     * 
+     * @param {Event} event El evento de envío del formulario.
+     */
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
         const username = document.getElementById('username');
         const password = document.getElementById('password');
 
+        // Verifica si los campos de nombre de usuario y contraseña existen
         if (!username || !password) {
             console.error('No se encontraron los campos de formulario necesarios.');
             errorElement.textContent = 'No se encontraron los campos de formulario necesarios.';
@@ -24,6 +31,13 @@ document.addEventListener('DOMContentLoaded', function () {
             password: password.value
         };
 
+        /**
+         * Envía una solicitud POST al servidor para autenticar al usuario.
+         * 
+         * @param {string} url La URL a la que se envía la solicitud.
+         * @param {Object} options Las opciones de la solicitud fetch.
+         * @returns {Promise} Una promesa que se resuelve con la respuesta del servidor.
+         */
         fetch('../db/login.php', {
             method: 'POST',
             headers: {

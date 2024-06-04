@@ -60,28 +60,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('form');
+document.addEventListener("DOMContentLoaded", async function() {
+    const form = document.getElementById('updateProfileForm');
+    const messageDiv = document.getElementById('message');
+
+    try {
+        const response = await fetch('/db/update-profile.php');
+        const data = await response.json();
+        if (data.success) {
+            document.getElementById('id').value = data.data.id;
+            document.getElementById('username').value = data.data.username;
+            document.getElementById('email').value = data.data.email;
+        } else {
+            messageDiv.textContent = data.message;
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formData = new FormData(form);
-        
         try {
-            const response = await fetch('../db/update-profile.php', {
+            const response = await fetch('/db/update-profile.php', {
                 method: 'POST',
                 body: formData
             });
-            
             const data = await response.json();
-            
-            if (data.success) {
-                alert(data.message);
-            } else {
-                alert(data.message);
-            }
+            alert(data.message);
         } catch (error) {
-            console.error('Hubo un problema con la operación fetch:', error);
-            alert('Error al actualizar el perfil. Verifica la respuesta del servidor.');
+            console.error('Error:', error);
+            alert('Error al actualizar el perfil');
         }
     });
 });

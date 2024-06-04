@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -23,10 +26,13 @@
                 <input class="form-control" type="email" name="email" id="email" placeholder="Correo Electrónico" required>
                 <label class="sr-only" for="password">Contraseña</label> <br>
                 <input class="form-control" type="password" name="password" id="password" placeholder="Contraseña" required>
+                <label class="sr-only" for="confirmPassword">Confirmar Contraseña</label> <br>
+                <input class="form-control" type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirmar Contraseña" required>
                 <button class="btn" type="submit">Registrarse</button>
             </form>
             <p>¿Ya tienes una cuenta? <a href="/admin/login.php">Inicia Sesión</a></p>
             <p id="error" class="error"></p>
+            <p id="success" class="success"></p>
         </div>
     </div>
 

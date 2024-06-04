@@ -2,6 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+
 include('../db/connection.php');
 
 header('Content-Type: application/json');
@@ -23,7 +24,6 @@ class Auth {
      * @param string $password La contraseña del usuario.
      * @return array Un array con el resultado de la autenticación.
      */
-
     public function login($email, $password) {
         try {
             $query = $this->conn->prepare("SELECT * FROM users WHERE email = :email OR username = :email LIMIT 1");
@@ -35,6 +35,7 @@ class Auth {
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['email'] = $user['email'];
                 $_SESSION['id'] = $user['id'];
+                $_SESSION['last_login'] = time();  // Guardar la hora del último inicio de sesión
 
                 return ['success' => true, 'message' => 'Inicio de sesión exitoso.'];
             } else { 
@@ -47,9 +48,15 @@ class Auth {
 }
 
 /**
+ * Validación de entrada
+ */
+function validate_input($data) {
+    return htmlspecialchars(strip_tags(trim($data)));
+}
+
+/**
  * Obtiene los datos de entrada y los procesa.
  */
-
 $data = json_decode(file_get_contents('php://input'), true);
 
 if (!$data || !isset($data['username']) || !isset($data['password'])) {
@@ -57,12 +64,8 @@ if (!$data || !isset($data['username']) || !isset($data['password'])) {
     exit;
 }
 
-/**
- * Inicia la autenticación.
- */
-
-$email = htmlspecialchars($data['username']);
-$password = htmlspecialchars($data['password']);
+$email = validate_input($data['username']);
+$password = validate_input($data['password']);
 
 /**
  * Inicia la sesión.
