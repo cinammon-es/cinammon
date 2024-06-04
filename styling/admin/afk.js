@@ -1,3 +1,6 @@
+/**
+ * Este archivo contiene las funciones que se ejecutan en la página de administración de usuarios AFK.
+ */
 document.getElementById('setAfkForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const username = document.getElementById('username').value;
@@ -15,7 +18,9 @@ document.getElementById('setAfkForm').addEventListener('submit', function(event)
         alert(data.status === 'success' ? 'User set to AFK' : `Error setting AFK: ${data.message}`);
     });
 });
-
+/**
+ * Este archivo contiene las funciones que se ejecutan en la página de administración de usuarios AFK.
+ */
 document.getElementById('setActiveForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const username = document.getElementById('usernameActive').value;
@@ -34,6 +39,10 @@ document.getElementById('setActiveForm').addEventListener('submit', function(eve
     });
 });
 
+
+/**
+ * Este archivo contiene las funciones que se ejecutan en la página de administración de usuarios AFK.
+ */
 document.getElementById('getAfkStats').addEventListener('click', function() {
     fetch('../db/api.php?action=getAfkStats')
     .then(response => response.json())
@@ -48,6 +57,10 @@ document.getElementById('getAfkStats').addEventListener('click', function() {
         table.appendChild(thead);
     });
 });
+
+/**
+ * Este archivo contiene las funciones que se ejecutan en la página de administración de usuarios AFK.
+*/
 document.getElementById('getAfkSummary').addEventListener('click', function() {
     fetch('../db/api.php?action=getAfkSummary')
     .then(response => response.json())

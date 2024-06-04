@@ -226,7 +226,7 @@
             <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
         </div>
     </footer>
-
+    
     <script src="/styling/main/script.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script> 
 </body>

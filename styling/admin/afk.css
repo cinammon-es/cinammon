@@ -169,3 +169,54 @@ button {
     display: block;
     margin-bottom: 3px;
 }
+
+.result div span {
+    font-size: 0.8em;
+    color: #666;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 968px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    pre {
+        width: 100%;
+    }
+
+    .result {
+        width: 100%; 
+        border: 1px solid #ccc; 
+        padding: 10px;
+        margin-top: 10px; 
+        border-radius: 3px;
+    }
+
+    .result div strong {
+        font-size: 1.2em;
+    }
+
+    .result div span {
+        font-size: 0.7em;
+    }
+
+}

@@ -6,7 +6,7 @@ header('Content-Type: application/json');
 try {
     $afkManager = new AfkManager();
     $action = $_GET['action'] ?? '';
-
+    
     switch ($action) {
         case 'setAfk':
             $username = $_POST['username'] ?? '';
@@ -17,7 +17,7 @@ try {
                 echo json_encode(['status' => 'error', 'message' => 'Failed to set AFK']);
             }
             break;
-
+            
         case 'setActive':
             $username = $_POST['username'] ?? '';
             $email = $_POST['email'] ?? '';
@@ -27,7 +27,7 @@ try {
                 echo json_encode(['status' => 'error', 'message' => 'Failed to set Active']);
             }
             break;
-
+            
         case 'getAfkSummary':
             $summary = $afkManager->getAfkSummary();
             echo json_encode($summary);

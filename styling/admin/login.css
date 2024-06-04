@@ -144,3 +144,14 @@ body {
         transform: translateY(0);
     }
 }
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .image-container {
+        width: 100%;
+    }
+}
