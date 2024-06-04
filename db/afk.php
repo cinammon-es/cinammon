@@ -1,69 +1,53 @@
 <?php
 require_once '../db/connection.php';
 
-class AfkManager
-{
-    private $conn;
+class AfkManager {
+    private $db;
 
-    public function __construct($db)
-    {
-        $this->conn = $db;
+    public function __construct() {
+        $database = new Database();
+
     }
 
-    public function setAfk($username, $email)
-    {
-        $query = "UPDATE afk SET status = 'afk', afk_start_time = NOW() WHERE username = :username AND email = :email";
-        $statement = $this->conn->prepare($query);
-        
-        $statement->bindParam(':email', $email);
-        return $statement->execute();
+    public function setAfk($username, $email) {
+        // Asegúrate de sanear las entradas para evitar inyección SQL
+        $username = htmlspecialchars($username);
+        $email = htmlspecialchars($email);
+
+        // Construye la consulta SQL directamente
+        $sql = "INSERT INTO afk_users (username, email) VALUES ('$username', '$email')";
+
+        // Ejecuta la consulta
+        $this->db->query($sql);
     }
 
-    public function setActive($username, $email)
-    {
-        $query = "UPDATE afk SET status = 'active', afk_end_time = NOW() WHERE username = :username AND email = :email";
-        $statement = $this->conn->prepare($query);
-        $statement->bindParam(':username', $username);
-        $statement->bindParam(':email', $email);
-        return $statement->execute();
+    public function setActive($username, $email) {
+        // Asegúrate de sanear las entradas para evitar inyección SQL
+        $username = htmlspecialchars($username);
+        $email = htmlspecialchars($email);
+
+        // Construye la consulta SQL directamente
+        $sql = "DELETE FROM afk_users WHERE username='$username' AND email='$email'";
+
+        // Ejecuta la consulta
+        $this->db->query($sql);
     }
 
-    public function getAfkSummary()
-    {
-        $query = "SELECT username, total_cinacoins, total_afk_time FROM afk_summary";
-        $statement = $this->conn->prepare($query);
-        $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    public function getAfkSummary() {
+        // Construye la consulta SQL directamente
+        $sql = "SELECT * FROM afk_users";
+
+        // Ejecuta la consulta y devuelve los resultados
+        $stmt = $this->db->query($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getAfkStats()
-    {
-        $query = "
-            SELECT 
-                AVG(total_cinacoins) AS average_cinacoins,
-                AVG(total_afk_time) AS average_afk_time,
-                SUM(total_cinacoins) AS total_cinacoins,
-                SUM(total_afk_time) AS total_afk_time
-            FROM afk_summary";
-        $statement = $this->conn->prepare($query);
-        $statement->execute();
-        return $statement->fetch(PDO::FETCH_ASSOC);
+    public function getAfkStats() {
+        // Construye la consulta SQL directamente
+        $sql = "SELECT COUNT(*) AS total_afk_users FROM afk_users";
+
+        // Ejecuta la consulta y devuelve los resultados
+        $stmt = $this->db->query($sql);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
-
-// Uso del AfkManager
-$afkManager = new AfkManager($db);
-
-// Establecer usuario en modo AFK
-$afkManager->setAfk('nombreUsuario', 'correo@example.com');
-
-// Establecer usuario en modo activo
-$afkManager->setActive('nombreUsuario', 'correo@example.com');
-
-// Obtener el resumen de AFK
-$afkSummary = $afkManager->getAfkSummary();
-print_r($afkSummary);
-
-// Obtener estadísticas de AFK
-$afkStats = $afkManager->getAfkStats();
-print_r($afkStats);
