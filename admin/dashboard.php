@@ -56,8 +56,7 @@ session_start();
             <div class="card">
                 <h2>Estado AFK</h2>
                 <p>¡Estás en modo AFK! Esto significa que no estás disponible en este momento.</p>
-                <button> Desactivar AFK</button>
-                <button> Ver lista de usuarios AFK</button>
+                <a href="/admin/afk.php"><button> AFK MANAGER </button></a>
 
                 <div class="card">
                     <h2>Lista de Usuarios AFK</h2>
