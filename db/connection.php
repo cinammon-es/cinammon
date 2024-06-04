@@ -114,37 +114,37 @@ class Database
 
         $this->conn->exec($sqlUsers);  
         if ($this->conn->exec($sqlUsers) === false) {
-            echo "Error al crear la tabla users<br>";
+            echo "Error al crear la tabla users\n";
         } else {
             echo "Tabla users creada con éxito\n";
         }
 
         $this->conn->exec($sqlAfk);
         if ($this->conn->exec($sqlAfk) === false) {
-            echo "Error al crear la tabla afk<br>";
+            echo "Error al crear la tabla afk\n";
         } else {
             echo "Tabla afk creada con éxito";
         }
 
         $this->conn->exec($sqlAfkUsers);
         if ($this->conn->exec($sqlAfkUsers) === false) {
-            echo "Error al crear la tabla afk_users<br>";
+            echo "Error al crear la tabla afk_users\n";
         } else {
             echo "Tabla afk_users creada con éxito";
         }
 
         $this->conn->exec($sqlAfkSummary);
         if ($this->conn->exec($sqlAfkSummary) === false) {
-            echo "Error al crear la tabla afk_summary<br>";
+            echo "Error al crear la tabla afk_summary\n";
         } else {
-            echo "Tabla afk_summary creada con éxito<br>";
+            echo "Tabla afk_summary creada con éxito\n";
         }
 
         $this->conn->exec($sqlTrigger);
         if ($this->conn->exec($sqlTrigger) === false) {
-            echo "Error al crear el trigger before_afk_update<br>";
+            echo "Error al crear el trigger before_afk_update\n";
         } else {
-            echo "Trigger before_afk_update creado con éxito<br>";
+            echo "Trigger before_afk_update creado con éxito\n";
         }
     }
     
@@ -169,9 +169,9 @@ class Database
         $this->conn->exec($sqlActiveUsersView);
 
         if ($this->conn->exec($sqlAfkSummaryView) === false) {
-            echo "Error al crear la vista afk_summary_view<br>";
+            echo "Error al crear la vista afk_summary_view\n";
         } else {
-            echo "Vista afk_summary_view creada con éxito<br>";
+            echo "Vista afk_summary_view creada con éxito\n";
         } 
     } 
     
