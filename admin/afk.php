@@ -45,6 +45,10 @@
         </section>
     </div>
 
+    <footer>
+        <a href="/admin/dashboard.php#afk"><button>Back to Dashboard</button></a>
+    </footer>
+
     <script src="/styling/admin/afk.js"></script>
 </body>
 
