@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AFK Manager</title>
+    <link rel="icon" href="/images/main/favicon.ico">
     <link rel="stylesheet" href="/assets/css/afk.css">
 </head>
 
