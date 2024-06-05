@@ -8,7 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <title>Registro</title>
     <link rel="icon" href="/images/main/favicon.ico">
-    <link rel="stylesheet" href="/styling/admin/singup.css">
+    <link rel="stylesheet" href="/assets/css/signup.css">
 </head>
 
 <body>
@@ -36,7 +36,7 @@ session_start();
         </div>
     </div>
 
-    <script src="/styling/admin/register.js"></script>
+    <script src="/assets/js/register.js"></script>
 </body>
 
 </html>
