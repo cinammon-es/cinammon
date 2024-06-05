@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AFK Manager</title>
-    <link rel="stylesheet" href="/styling/admin/afk.css">
+    <link rel="stylesheet" href="/assets/css/afk.css">
 </head>
 
 <body>
@@ -49,7 +49,7 @@
         <a href="/admin/dashboard.php#afk"><button>Back to Dashboard</button></a>
     </footer>
 
-    <script src="/styling/admin/afk.js"></script>
+    <script src="/assets/js/afk.js"></script>
 </body>
 
 </html>
