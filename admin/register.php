@@ -8,7 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <title>Registro</title>
     <link rel="icon" href="/images/main/favicon.ico">
-    <link rel="stylesheet" href="/assets/css/signup.css">
+    <link rel="stylesheet" href="/assets/css/register.css">
 </head>
 
 <body>
