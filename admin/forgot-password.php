@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Recuperar Contraseña</title>
-    <link rel="stylesheet" href="/styling/admin/login.css">
+    <link rel="stylesheet" href="/assets/css/login.css">
 </head>
 
 <body>
