@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Inicio de Sesión</title>
     <link rel="icon" href="/images/main/favicon.ico">
-    <link rel="stylesheet" href="/styling/admin/login.css">
+    <link rel="stylesheet" href="/assets/css/login.css">
 </head>
 
 <body>
@@ -27,7 +27,7 @@
             <p id="error" class="error" style="color:red;"></p>
         </div>
     </div>
-    <script src="/styling/admin/login.js"></script>
+    <script src="/assets/js/login.js"></script>
 </body>
 
 </html>
