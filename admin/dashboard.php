@@ -10,9 +10,9 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Completo</title>
     <link rel="icon" href="/images/main/favicon.ico">
-    <link rel="stylesheet" href="/styling/admin/dashboard.css">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="/styling/admin/dashboard.js" defer></script>
+    <script src="/assets/js/dashboard.js"></script>
 </head>
 
 <body>
