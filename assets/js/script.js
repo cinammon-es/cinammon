@@ -22,49 +22,16 @@ let navtreelinks = document.querySelectorAll('head navtree a'); // Corrige el se
 
 /**
  * Maneja el evento de desplazamiento de la ventana.
- */
-window.onscroll = () => {
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
+ */document.addEventListener('DOMContentLoaded', () => {
+    let scrollToTopIcon = document.querySelector('.footer-iconTop a');
 
-        if (top >= offset && top < offset + height) {
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+    if (scrollToTopIcon) {
+        scrollToTopIcon.onclick = (event) => {
+            event.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
-            // Añadir lógica similar para navtreelinks si es necesario
-            navtreelinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(id)) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
-
-    // sticky navbar //
-    let header = document.querySelector('header');
-    header.classList.toggle('sticky', window.scrollY > 100);
-
-    menuIcon.classList.remove('bx-x');
-    navbar.classList.remove('active');
-    navtree.classList.remove('active'); // Añadir esta línea para asegurarse de que navtree también se cierre
-};
-
-/**
- * Configuración de ScrollReveal para animaciones.
- */
-ScrollReveal({
-    reset: true,
-    distance: '80px',
-    duration: 2000,
-    delay: 200
+        };
+    }
 });
-
-/**
- * Revela los elementos con la clase 'home-content' y 'heading' con un retraso.
- */
-ScrollReveal().reveal('.home-content, .heading', {delay: 500});
