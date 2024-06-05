@@ -91,9 +91,8 @@
         </div>
     </footer>
 
-    <script src="/styling/services/scriptdb.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
-
+    <script src="/assets/js/script.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script> 
 </body>
 
 </html>
