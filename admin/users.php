@@ -10,7 +10,7 @@
     <!-- Importar fuentes -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
     <!-- Estilos globales -->
-    <link rel="stylesheet" href="/styling/admin/users.css">
+    <link rel="stylesheet" href="/assets/css/users.css">
 </head>
 
 <body>
