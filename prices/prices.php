@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>https://cinammon.es/prices/freeplan</title>
 
-    <link rel="stylesheet" href="/styling/main/style.css" />
-    <link rel="stylesheet" href="/styling/prices/prices.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/prices.css" />
+    <link rel="icon" href="/images/main/favicon.ico" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
     />
+
+    <script src="/assets/js/script.js"></script>
   </head>
 
   <body>
@@ -620,6 +623,6 @@
       </div>
     </footer>
 
-    <script src="/js/main.js"></script>
+    <script src="/assets/js/script.js"></script>
   </body>
 </html>
